@@ -1,0 +1,10 @@
+.top-gap{
+	padding-top: 60px;
+	
+}
+
+.preview{
+    width:100px;
+    height:100px;
+    overflow:hidden;
+}

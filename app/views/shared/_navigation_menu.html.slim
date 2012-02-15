@@ -1,0 +1,19 @@
+#navbar class="navbar navbar-fixed-top
+  .navbar-inner
+    .container
+      = link_to 'home', root_path, :class => 'brand'
+      ul class="nav"
+        li = link_to 'users', users_path
+
+
+
+
+      ul class="nav pull-right"
+        form class="navbar-search pull-left" action=""
+          input class="search-query span2" type="text" placeholder="Search"
+        -if current_user
+          li = link_to 'log out', log_out_path
+          li = link_to current_user.name, current_user 
+        -else
+          li = link_to 'log in', log_in_path
+    

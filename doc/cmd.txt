@@ -1,0 +1,2 @@
+rails g scaffold user email:string password_hash:string password_salt:string name:string role:string sign_in_count:string image:string auth_token:string password_digest:string
+

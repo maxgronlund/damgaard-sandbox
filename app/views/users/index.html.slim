@@ -1,0 +1,74 @@
+= render 'shared/navigation_menu'
+.top-gap
+.container
+  .content.top-void
+    .page-header
+      h1 Users <small>With login</small>
+      
+    .row
+      .span3
+        h3 Sign up a new user
+        br
+        = link_to 'New user', new_user_path, :rel=> "popover", :class =>"btn btn-large btn-success", :'data-original-title'=>"Create a new user", :'data-content'=>"To sign up a new user all you need is an email and a password"
+
+        script 
+          | $(function () {
+              $("a[rel=popover]")
+                .popover({
+                  offset: 10
+                })
+                .clickx(function(e) {
+                  e.preventDefault()
+                })
+              })
+
+
+        /<a class="btn btn-danger" data-content="And here's some amazing content. It's very engaging. right?" rel="popover" href="#" data-original-title="A Title">hover for popover</a>
+    
+      .span9
+        h2 Find
+        = form_tag users_path, :method => 'get', :class => "well form-search" do
+          = text_field_tag :search, params[:search], :class => 'input-medium search-query', :placeholder => 'Type name here'
+          '&nbsp;
+          = submit_tag 'Search', :class => 'btn btn-primary', 
+          '&nbsp;
+          = link_to users_path do
+            .btn.btn-f
+              i class="icon-refresh"
+              '&nbsp;show all
+          
+        = render 'js/table_sorter'
+        table class="table table-striped" id="sortTableExample"
+          thead
+            tr
+              th Name
+              th Email
+              th Role
+              th Manage
+          tbody
+            - @users.each do |user|
+              
+              tr
+                td = link_to user.name, user, :rel=>'twipsy', :title=>'Show'
+                td = user.email
+                td = user.role
+                td 
+                  =link_to user do
+                     i class="icon-eye-open"
+                  '&nbsp;
+                  =link_to edit_user_path(user) do
+                    i class="icon-pencil"
+                  '&nbsp;
+                  - unless user.id == 1
+                    =link_to(user, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+                      i class="icon-remove"
+              
+        == paginate(@users)
+        br
+    
+    /= render 'shared/twipsy'
+    
+    
+    
+    
+    

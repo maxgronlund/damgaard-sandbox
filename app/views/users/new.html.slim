@@ -1,0 +1,15 @@
+= render 'shared/navigation_menu'
+.top-gap
+.container
+  .content
+    
+    = render 'shared/breadcrumbs', :breadcrumbs => @breadcrumbs unless @breadcrumbs.nil?
+    .page-header
+      h1 Sign up <small>Join the club</small>
+    .row
+      .span3
+        ul class="thumbnails"
+          li =link_to image_tag((@user.image_url :large), :class =>"thumbnail"), '#'
+       
+      .span9
+        == render 'form'
