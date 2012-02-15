@@ -12095,7 +12095,4 @@ else{attachWhenDone(this);}});return this;};$.Jcrop.defaults={allowSelect:true,a
 
 
 
-
-
-$('#navbar').scrollspy();
-$(".alert-message").alert();
+;
