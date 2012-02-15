@@ -13,6 +13,6 @@
         ul class="thumbnails"
           li =link_to image_tag((@user.image_url :large), :class =>"thumbnail"), '#'
         .pull-right
-          = link_to 'Edit image', crop_user_path(@user, :version => :large), :class =>'btn'
+          = link_to 'Edit image', crop_user_path(@user, :version => :large), :class =>'btn'  if @user.image.present?
       .span9
         == render 'form'

@@ -48,7 +48,8 @@
             = f.hidden_field attribute, :id => attribute
           = f.hidden_field :crop_version, :value => @crop_version
           .form-actions
-            = f.submit "Edit", :class => "btn btn-primary"
+            .pull-right
+              = f.submit "Save", :class => "btn btn-primary"
 
             
       .span8
