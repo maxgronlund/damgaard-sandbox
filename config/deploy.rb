@@ -22,7 +22,7 @@ set :use_sudo, false
 
 # repo details
 set :scm , :git
-set :repository, "git@github.com:maxgronlund/damgaard.git"  # <<< change reposotory
+set :repository, "git@github.com:maxgronlund/damgaard-sandbox.git"  # <<< change reposotory
 set :branch, "master"
 set :git_enable_submodules, 1
 
