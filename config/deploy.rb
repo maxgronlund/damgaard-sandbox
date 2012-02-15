@@ -9,7 +9,7 @@ require 'bundler/capistrano'
 load 'deploy/assets'
 
 # main details
-set :application, "damgaard"                                # <<< change name
+set :application, "damgaard-sandbox"                                # <<< change name
 server "46.4.64.81", :app, :web, :db, :primary => true
 
 # server details
