@@ -11,7 +11,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110626062204) do
+ActiveRecord::Schema.define(:version => 20120217162010) do
+
+  create_table "companies", :force => true do |t|
+    t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "galleries_overviews", :force => true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.text     "crop_params"
+    t.integer  "page_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "galleries_overviews", ["page_id"], :name => "index_galleries_overviews_on_page_id"
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "company_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "pages", ["company_id"], :name => "index_pages_on_company_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

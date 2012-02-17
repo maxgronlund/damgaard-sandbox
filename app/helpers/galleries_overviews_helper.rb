@@ -1,0 +1,2 @@
+module GalleriesOverviewsHelper
+end

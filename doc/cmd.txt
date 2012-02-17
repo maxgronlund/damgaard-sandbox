@@ -1,2 +1,6 @@
 rails g scaffold user email:string password_hash:string password_salt:string name:string role:string sign_in_count:string image:string auth_token:string password_digest:string
 
+rails g scaffold company title:string
+rails g scaffold page title:string body:text company:belongs_to
+rails g scaffold galleries_overview title:string image:string crop_params:text page:belongs_to
+

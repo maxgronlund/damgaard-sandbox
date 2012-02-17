@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @galleries_overview.title
+p
+  strong Image:
+  = @galleries_overview.image
+p
+  strong Crop params:
+  = @galleries_overview.crop_params
+p
+  strong Page:
+  = @galleries_overview.page
+
+= link_to 'Edit', edit_galleries_overview_path(@galleries_overview)
+'|
+= link_to 'Back', galleries_overviews_path

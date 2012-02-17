@@ -1,5 +1,13 @@
 BootstrapOnRails::Application.routes.draw do
   
+  resources :galleries_overviews
+
+  resources :pages
+
+  resources :companies
+
+  get "admin/index"
+
   root :to => "home#index"
   
   #  get "password_resets/new"
