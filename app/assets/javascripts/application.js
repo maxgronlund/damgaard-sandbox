@@ -15,7 +15,7 @@
 // require_tree .
 //= require jquery.tablesorter.min
 //= require jquery.Jcrop.min
-//= require bootstrap
+// require bootstrap
 //= require bootstrap-alert
 //= require bootstrap-tooltip
 //= require bootstrap-popover
