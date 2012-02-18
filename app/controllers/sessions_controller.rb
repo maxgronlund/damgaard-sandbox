@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         cookies[:auth_token] = user.auth_token  
       end
       session[:user_id] = user.id
-      redirect_to user_path(current_user), :notice => "Welcome back "+ user.name
+      redirect_to admin_index_path, :notice => "Welcome back "+ user.name
     else
       #flash.now.alert = "Invalid email or password"
       flash[:error] = "Invalid email or password"

@@ -1,9 +1,26 @@
-p#notice = notice
+= render 'shared/navigation_menu'
+.top-gap
+.container
+  .content
 
-p
-  strong Title:
-  = @company.title
+    = render 'shared/breadcrumbs', :breadcrumbs => @breadcrumbs unless @breadcrumbs.nil?
+    .page-header
+      h1#{@company.title} <small>Company info</small>
+    .row
+      .span3
+       / ul class="thumbnails"
+       /   li =link_to image_tag((@user.image_url :large), :class =>"thumbnail"), '#'
+        -if can_edit?
+          .pull-right
+            =link_to 'Edit', edit_company_path(@company), :class => 'btn btn-primary'
 
-= link_to 'Edit', edit_company_path(@company)
-'|
-= link_to 'Back', companies_path
+      .span9
+        .well
+          /h5 Email: <small>#{ @user.email}</small>
+          /br
+          /h5 Role: <small>#{ @user.role}</small>
+
+
+
+
+

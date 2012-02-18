@@ -1,0 +1,46 @@
+h1 Companies
+
+table class="table" 
+  thead
+    tr
+      th Name
+      th Public
+      th Manage
+  tbody
+    - companies.each do |company|
+      tr
+        td = link_to company.title, company
+        td 
+          -if company.publish?
+            'yes
+          -else
+            'no
+        td 
+          
+          = link_to company do
+            i class="icon-eye-open"
+          '&nbsp;
+          
+          = link_to edit_company_path(company) do
+            i class="icon-pencil"
+
+          '&nbsp;
+          =link_to(company, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+            i class="icon-trash"   
+          //= link_to 'delete', company, :confirm => 'Are you sure?', :method => :delete'
+  
+
+.pull-right
+  = link_to 'New company', new_company_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new company", :'data-content'=>"Add pages and images"
+br
+script 
+  | $(function () {
+      $("a[rel=popover]")
+        .popover({
+          offset: 10,
+          placement: 'left'
+        })
+        .clickx(function(e) {
+          e.preventDefault()
+        })
+      })

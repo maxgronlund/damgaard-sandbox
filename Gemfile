@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.0'
+gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -16,6 +16,7 @@ gem 'simple_form'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'country_select'
 
 # Gems used only for assets and not required
 # in production environments by default.
