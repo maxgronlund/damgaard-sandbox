@@ -1,0 +1,115 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*********************************************************************/
+h1{
+	font-size: 32px;
+	font-weight: normal;
+	font-style: normal;
+	margin-bottom: 18px;
+}
+
+h2{
+	font-size: 18px;
+}
+
+p {
+	color: #fff;
+	font-size: 14px;
+}
+
+.fullBg {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	overflow: hidden;
+}
+
+#maincontent {
+	background-image: url('<%= asset_path "transp_pixel_pattern.png" %>');
+	/*background-image: url("../images/transp_pixel_pattern.png");*/
+	position: absolute;
+	top: 0px;
+	left: 0;
+	z-index: 50;
+	width: 100%;
+	height:100%;
+
+	}
+
+#box {
+
+	background-color:rgba(0,0,0,0.5);
+	width: 920px;
+	margin: auto;
+	padding:20px;
+	margin-top: 100px;
+	color:#fff;
+	font-family: 'KlavikaRegular';
+}
+
+#solid-red{
+	background-color:#ff4600;
+	margin: auto;
+	width: 960px;
+	height:48px;
+
+	margin-top: 10px;
+}
+
+@font-face {
+    font-family:'KlavikaRegular';
+    src: url('<%= asset_path "klavikaregular-tf-webfont.eot" %>');
+    src: url('<%= asset_path "klavikaregular-tf-webfont.eot?#iefix" %>') format('embedded-opentype'),
+         url('<%= asset_path "klavikaregular-tf-webfont.woff" %>')format('woff'),
+         url('<%= asset_path "klavikaregular-tf-webfont.ttf" %>') format('truetype'),
+         url('<%= asset_path "klavikaregular-tf-webfont.svg#KlavikaRegular" %>') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
