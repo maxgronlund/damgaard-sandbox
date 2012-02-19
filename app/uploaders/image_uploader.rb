@@ -26,9 +26,9 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:  
   cattr_accessor :version_dimensions
   self.version_dimensions = {
-
     :thumb => [160, 120],
     :large => [210, 252]
+
   }
 
   RESIZE_GRAVITY = 'NorthWest'
