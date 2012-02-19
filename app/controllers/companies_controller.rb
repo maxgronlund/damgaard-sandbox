@@ -1,4 +1,5 @@
 class CompaniesController < InheritedResources::Base
+
   #layout 'frontend'
   
   def show
@@ -40,5 +41,17 @@ class CompaniesController < InheritedResources::Base
   def destroy
     destroy! { admin_index_path}
   end
+
+
+  def edit
+    @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
+    edit!
+  end
+  def new
+    @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
+    new!
+  end
+  
+
 
 end

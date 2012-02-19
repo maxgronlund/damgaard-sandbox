@@ -11,7 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20120218124218) do
+=======
+ActiveRecord::Schema.define(:version => 20120217213956) do
+>>>>>>> 0ff5751d7a08b2327678487989ca112a61717d6f
 
   create_table "companies", :force => true do |t|
     t.string   "title"
@@ -28,7 +32,10 @@ ActiveRecord::Schema.define(:version => 20120218124218) do
     t.boolean  "publish"
     t.string   "image"
     t.text     "crop_params"
+<<<<<<< HEAD
     t.string   "headline"
+=======
+>>>>>>> 0ff5751d7a08b2327678487989ca112a61717d6f
   end
 
   create_table "galleries_overviews", :force => true do |t|
