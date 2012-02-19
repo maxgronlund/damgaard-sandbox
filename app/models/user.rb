@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   
   # validate :name, :presence => true
   
-  ROLES = %w[member admin super]
+  ROLES = %w[admin super]
   
   def admin_or_super?
     admin? || super?

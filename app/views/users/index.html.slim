@@ -38,7 +38,7 @@
               '&nbsp;show all
           
         = render 'js/table_sorter'
-        table class="table table-striped" id="sortTableExample"
+        table class="table" id="sortTableExample"
           thead
             tr
               th Name
@@ -46,8 +46,7 @@
               th Role
               th Manage
           tbody
-            - @users.each do |user|
-              
+            - @users.select { |user| user.id != 1 }.each do |user|
               tr
                 td = link_to user.name, user, :rel=>'twipsy', :title=>'Show'
                 td = user.email

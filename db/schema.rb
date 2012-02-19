@@ -11,12 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217162010) do
+ActiveRecord::Schema.define(:version => 20120218124218) do
 
   create_table "companies", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "street"
+    t.string   "zip"
+    t.string   "city"
+    t.string   "country"
+    t.string   "phone"
+    t.string   "fax"
+    t.string   "email"
+    t.text     "body"
+    t.boolean  "publish"
+    t.string   "image"
+    t.text     "crop_params"
+    t.string   "headline"
   end
 
   create_table "galleries_overviews", :force => true do |t|

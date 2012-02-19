@@ -8,8 +8,12 @@
       h1 CMS <small>Content Management System</small>
     .row
       .span3
-        'ha
+        h3 Site management
+        
 
       .span9
+        = render 'shared/messages'
         .well
-          'ho
+          = render 'admin/companies/index', :companies => @companies
+        .well
+          = render 'users/index', :users => @users

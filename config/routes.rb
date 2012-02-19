@@ -2,13 +2,37 @@ BootstrapOnRails::Application.routes.draw do
   
   resources :galleries_overviews
 
-  resources :pages
+#  resources :pages
 
-  resources :companies
+  namespace :admin do
+    resources :companies do
+      member do
+        get 'crop'
+        put 'crop_update'
+      end
+      resources :pages
+    end
+  end
+
+  resources :companies do
+    member do
+      get 'crop'
+      put 'crop_update'
+    end
+    resources :pages
+  end
+  
+  resources :pages do
+    member do
+      get 'crop'
+      put 'crop_update'
+    end
+    #resources :pages
+  end
 
   get "admin/index"
 
-  root :to => "home#index"
+  root :to =>  "companies#show", :id => 1
   
   #  get "password_resets/new"
   get "sign_up" => "users#new", :as => "sign_up"

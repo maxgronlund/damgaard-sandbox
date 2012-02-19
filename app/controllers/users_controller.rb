@@ -13,6 +13,7 @@ class UsersController < InheritedResources::Base
     #  @users = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
     #else
       @users = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(25)
+
     #end
   end
 
@@ -25,7 +26,7 @@ class UsersController < InheritedResources::Base
   end
   
   def new
-    @breadcrumbs = { "Home" => root_path, "Users" => users_path }
+    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, "Users" => users_path }
     new!
   end
   
@@ -33,17 +34,6 @@ class UsersController < InheritedResources::Base
     @breadcrumbs = { "Home" => root_path, "Users" => users_path, @user.name => @user }
     edit!
   end
-
-#  def create
-#    user = User.find_by_email(params[:email])
-#    if user && user.authenticate(params[:password])
-#      session[:user_id] = user.id
-#      redirect_to root_url, :notice => "Logged in!"
-#    else
-#      flash.now.alert = "Invalid email or password"
-#      render "new"
-#    end
-#  end
 
 
   

@@ -4,3 +4,5 @@ rails g scaffold company title:string
 rails g scaffold page title:string body:text company:belongs_to
 rails g scaffold galleries_overview title:string image:string crop_params:text page:belongs_to
 
+rails g migration AddInfoToCompany street:string zip:string country:string phone:string fax:string email:string
+

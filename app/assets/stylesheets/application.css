@@ -11,7 +11,8 @@
  * require_self
  * require_tree .
  *= require application
- * require bootstrap
+ *= require bootstrap
+ *= require bootstrap-responsive.min
  *= require jquery.Jcrop
 */
 
@@ -26,3 +27,4 @@
     height:100px;
     overflow:hidden;
 }
+

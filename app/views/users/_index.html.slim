@@ -1,0 +1,46 @@
+
+h1 Users <small>With login</small>
+      
+
+          
+= render 'js/table_sorter'
+table class="table" id="sortTableExample"
+  thead
+    tr
+      th Name
+      th Email
+      th Role
+      th Manage
+  tbody
+    - users.each do |user| 
+      tr
+        td = link_to user.name, user, :rel=>'twipsy', :title=>'Show'
+        td = user.email
+        td = user.role
+        td 
+          =link_to user do
+             i class="icon-eye-open"
+          '&nbsp;
+          =link_to edit_user_path(user) do
+            i class="icon-pencil"
+          '&nbsp;
+          =link_to(user, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+            i class="icon-remove"
+                
+
+  
+br
+.pull-right
+  = link_to 'New user', new_user_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new user", :'data-content'=>"To sign up a new user all you need is an email and a password"
+br
+script 
+  | $(function () {
+      $("a[rel=popover]")
+        .popover({
+          offset: 10,
+          placement: 'left'
+        })
+        .clickx(function(e) {
+          e.preventDefault()
+        })
+      })
