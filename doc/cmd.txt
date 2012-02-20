@@ -23,3 +23,5 @@ rails g migration AddBackdropIdToPage backdrop_id:integer
 rails g migration AddBackdropIdToCompany backdrop_id:integer
 
 rails g migration CreateBackdrop title:string image:string crop_params:text backdrop_id:integer
+
+rails g controller page_gallery edit

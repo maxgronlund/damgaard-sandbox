@@ -19,6 +19,8 @@ h3 Pages
               '&nbsp;
               =link_to(page, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
                 i class="icon-remove"
+              '&nbsp;
+              = link_to 'gallery', page_gallery_images_path(page)
 
 
 br
