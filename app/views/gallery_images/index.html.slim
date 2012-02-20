@@ -26,8 +26,14 @@
           tr
             td = image_tag(gallery_image.image_url :small)
             td = gallery_image.title
+            td 
+              = link_to 'Show', gallery_image
+              '&nbsp;
+              = link_to 'Edit', edit_gallery_image_path(gallery_image)
+              '&nbsp;
+              = link_to 'Destroy', gallery_image, :confirm => 'Are you sure?', :method => :delete
        
 
 
 
-      = link_to 'New Gallery image', new_page_gallery_image_path(@page)
+    = link_to 'New Gallery image', new_page_gallery_image_path(@page), class: 'btn btn-primary'

@@ -12,7 +12,7 @@
         .content    
           = markdown(@body.upcase)
       .page-gallery
-        'foo
+        = image_tag(@gallery_image.image_url :medium) if @gallery_image
    
     
   #solid-red

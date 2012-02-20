@@ -1,11 +1,32 @@
 = simple_form_for(@gallery_image) do |f|
   = f.error_notification
 
-  .inputs
-  |     = f.input :title
-  |     = f.input :image
-  |     = f.input :crop_params
-  |     = f.association :page
-  | 
-  .actions
-    = f.button :submit
+  fieldset
+    = f.input :title
+    = f.input :image
+    = f.hidden_field :image_cache
+    = f.hidden_field :page_id
+  .form-actions
+    = f.button :submit, :class =>"btn btn-primary"
+
+
+
+
+
+
+
+
+
+
+/= simple_form_for(@gallery_image) do |f|
+/  = f.error_notification
+/
+/  .inputs
+/  |     = f.input :title
+/  |     = f.input :image
+/  |     = f.input :crop_params
+/  |     = f.association :page
+/  | 
+/  .actions
+/    = f.button :submit
+/
