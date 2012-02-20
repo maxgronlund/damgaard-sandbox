@@ -43,7 +43,7 @@ BootstrapOnRails::Application.routes.draw do
 
   get "admin/index"
 
-  root :to =>  "companies#show", :id => 1
+  root :to =>  "home#index"
   
   #  get "password_resets/new"
   get "sign_up" => "users#new", :as => "sign_up"

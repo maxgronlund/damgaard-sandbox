@@ -18,6 +18,10 @@ class CompaniesController < InheritedResources::Base
     update!{ admin_company_path(@company)}
   end
   
+  def create
+    create! { admin_index_path }
+  end
+  
   def destroy
     destroy!{ admin_index_path }
   end

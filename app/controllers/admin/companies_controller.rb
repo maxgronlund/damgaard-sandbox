@@ -11,14 +11,22 @@ class Admin::CompaniesController < InheritedResources::Base
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path, @company.title => admin_company_path(@company) }
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
-    edit!
+    edit! { admin_index_path }
   end
   
   def new
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
-    new!
+    new! { admin_index_path }
+  end
+  
+  def create
+    create! { admin_index_path }
+  end
+  
+  def destroy
+    destroy!{ admin_index_path }
   end
   
 end
