@@ -8,7 +8,6 @@ class HomeController < ApplicationController
     else
       redirect_to company_path(Company.first.id)
     end
-      
   end
 
 end

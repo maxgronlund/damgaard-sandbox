@@ -2,16 +2,13 @@ class CompaniesController < InheritedResources::Base
   #layout 'frontend'
   
   def show
-    #redirect_to admin_index_path
-    if Company.all.empty?
-      redirect_to admin_index_path
-    else 
-      @company = Company.find(params[:id])
-      @title = session[:locale] == 'dk' ? @company.title : @company.title_uk
-      @headline = session[:locale] == 'dk' ? @company.headline : @company.headline_uk
-      @body = session[:locale] == 'dk' ? @company.body : @company.body_uk
-      render :layout => 'frontend'
-    end
+
+    @company = Company.find(params[:id])
+    @title = session[:locale] == 'dk' ? @company.title : @company.title_uk
+    @headline = session[:locale] == 'dk' ? @company.headline : @company.headline_uk
+    @body = session[:locale] == 'dk' ? @company.body : @company.body_uk
+    render :layout => 'frontend'
+
   end
   
   def update
