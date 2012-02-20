@@ -10,12 +10,12 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
-// require_tree .
-//= require jquery.tablesorter.min
-//= require jquery.Jcrop.min
-//= require bootstrap
-//= require bootstrap-alert
-//= require bootstrap-tooltip
-//= require bootstrap-popover
+// require jquery
+// require jquery_ujs
+//require_tree .
+// require jquery.tablesorter.min
+// require jquery.Jcrop.min
+// require bootstrap
+// require bootstrap-alert
+// require bootstrap-tooltip
+// require bootstrap-popover
