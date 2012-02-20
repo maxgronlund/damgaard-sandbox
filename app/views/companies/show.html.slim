@@ -1,7 +1,7 @@
 = render 'shared/navigation_menu'
 
 
-= image_tag( (@company.backdrop.image_url :large), :id=>"background")
+= image_tag( (@company.backdrop.image_url :large), :id=>"background") if @company.backdrop
 #maincontent
   #company-top
   .box

@@ -1,3 +1,7 @@
+
+
+
+
 = render 'shared/navigation_menu'
 .top-gap
 .container
@@ -5,32 +9,25 @@
 
     = render 'shared/breadcrumbs', :breadcrumbs => @breadcrumbs unless @breadcrumbs.nil?
     .page-header
-      h1 Gallery <small>for </small>
-      = @gallery_images.page_id
+      h1 Gallery
       
       
 
 
-table
-  tr
-    th Title
-    th Image
-    th Crop params
-    th Page
-    th
-    th
-    th
+    table class="table" 
+      thead
+        tr
+          th Name
+          th Language
+          th Public
+          th Manage
+      tbody
+        - @gallery_images.each do |gallery_image|
+          tr
+            td = image_tag(gallery_image.image_url :small)
+            td = gallery_image.title
+       
 
-  - @gallery_images.each do |gallery_image|
-    tr
-      td = gallery_image.title
-      td = gallery_image.image
-      td = gallery_image.crop_params
-      td = gallery_image.page
-      td = link_to 'Show', gallery_image
-      td = link_to 'Edit', edit_gallery_image_path(gallery_image)
-      td = link_to 'Destroy', gallery_image, :confirm => 'Are you sure?', :method => :delete
 
-br
 
-= link_to 'New Gallery image', new_gallery_image_path
+      = link_to 'New Gallery image', new_page_gallery_image_path(@page)
