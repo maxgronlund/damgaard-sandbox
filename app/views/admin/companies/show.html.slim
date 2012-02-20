@@ -11,9 +11,9 @@
         ul class="thumbnails"
           li class="thumbnail span3"
             = image_tag(@company.backdrop.image_url :medium) if @company.backdrop.image_url
-            /.caption
-            /  -if @company.image_url != '/assets/fallback/page.png'
-            /    = link_to 'Edit image', crop_admin_company_path(@company, :version => :medium), :class =>'btn'  
+            .caption
+              h3 Backdrop
+              'selected from the backdrop library
       .span3
         h3 Contact info
         strong street:&nbsp; 
@@ -46,9 +46,9 @@
       .span6
         h3 = @company.headline
         = markdown(@company.body)
-        /hr
-        /h3 = @company.headline_uk
-        / = markdown(@company.body_uk)
+        hr
+        h3 = @company.headline_uk
+        = markdown(@company.body_uk)
     =link_to 'Edit', edit_admin_company_path(@company), :class => 'btn btn-primary'
     '&nbsp;
     =link_to 'Show', company_path(@company), :class => 'btn'

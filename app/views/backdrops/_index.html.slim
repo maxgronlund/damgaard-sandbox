@@ -27,6 +27,16 @@ h3 Backdrops <small>Used for pages</small>
 
 br
 .pull-right
-  = link_to 'New backdrop', new_backdrop_path,:class => 'btn btn-primary'
+  = link_to 'New backdrop', new_backdrop_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new backdrop", :'data-content'=>"After creating a backdrop you can assign it to companies and pages"
 br
-
+script 
+  | $(function () {
+      $("a[rel=popover]")
+        .popover({
+          offset: 10,
+          placement: 'left'
+        })
+        .clickx(function(e) {
+          e.preventDefault()
+        })
+      })

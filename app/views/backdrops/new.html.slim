@@ -8,9 +8,7 @@
       h1 Create backdrop <small>When created you can select it from a page</small>
     .row
       .span3
-        /ul class="thumbnails"
-        /  li =link_to image_tag((@user.image_url :large), :class =>"thumbnail"), '#'
-        /
-        'foo
+        h3 Sizes and format
+        'Backdrops are scaled down to 620 x 268 px to give a rough effect and for the image to load fast in the browser, please export for web before uploading
       .span9
         == render 'form'

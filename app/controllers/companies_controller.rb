@@ -7,6 +7,7 @@ class CompaniesController < InheritedResources::Base
     @title = session[:locale] == 'dk' ? @company.title : @company.title_uk
     @headline = session[:locale] == 'dk' ? @company.headline : @company.headline_uk
     @body = session[:locale] == 'dk' ? @company.body : @company.body_uk
+    @companies = Company.all
     render :layout => 'frontend'
 
   end

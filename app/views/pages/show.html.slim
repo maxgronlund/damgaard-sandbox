@@ -3,15 +3,17 @@
 
 = image_tag( (@page.backdrop.image_url :large), :id=>"background")
 #maincontent
+  #page-top
   .box
-    #left-box
-      .headline
-        h1#{@title}
-      .content    
-        = markdown(@body)
-    #right-box
-      .headline
-        /h1#{@title}
+    #page
+      .page-content
+        .headline
+          h1#{@title.upcase}
+        .content    
+          = markdown(@body.upcase)
+      .page-gallery
+        'foo
+   
     
   #solid-red
   

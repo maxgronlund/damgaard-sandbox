@@ -4,12 +4,14 @@ table class="table"
   thead
     tr
       th Name
+      th Language
       th Public
       th Manage
   tbody
     - companies.each do |company|
       tr
         td = link_to company.title, admin_company_path(company)
+        td = company.country
         td 
           -if company.publish?
             'yes
@@ -31,7 +33,7 @@ table class="table"
   
 
 .pull-right
-  = link_to 'New company', new_admin_company_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new company", :'data-content'=>"Add pages and images"
+  = link_to 'New company', new_admin_company_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new company", :'data-content'=>"After creating a company you have to create pages for the company"
 br
 script 
   | $(function () {
