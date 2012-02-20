@@ -1,8 +1,6 @@
 BootstrapOnRails::Application.routes.draw do
   
 
-  get "page_gallery/edit"
-
   resource :locale
   
   resources :backdrops do

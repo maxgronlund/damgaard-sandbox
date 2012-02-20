@@ -27,9 +27,9 @@ class GalleryUploader < CarrierWave::Uploader::Base
   cattr_accessor :version_dimensions
   self.version_dimensions = {
     :xxsmall => [40, 30],
-    :xsmall => [80, 60],
-    :small => [160, 120],
-    :medium => [540, 480],
+    :xsmall => [98, 80],
+    :small => [540, 80],
+    :medium => [540, 440],
     :large => [360, 268],
 
   }

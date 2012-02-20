@@ -1,5 +1,5 @@
 h3 Pages
-'Show up in menus for the selected comppany
+'Shows up in menus for the selected comppany
 
 .row
   .span12
@@ -11,17 +11,16 @@ h3 Pages
             .caption
               h5 = page.title
               br
-              =link_to page do
-                 i class="icon-eye-open"
+              i = link_to '', page, :class => "icon-eye-open", :rel => "popover",  :'data-original-title'=>"Show page", :'data-content'=>"View the page as it looks for visitors"
               '&nbsp;
-              =link_to edit_page_path(page) do
-                i class="icon-pencil"
+              i = link_to '', edit_page_path(page), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit page", :'data-content'=>"Edit text. Select backdrop and assign page to menu"
               '&nbsp;
-              =link_to(page, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
-                i class="icon-remove"
+              
+              i = link_to '', page_gallery_images_path(page), :class => "icon-film", :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload immages to the page gallery "
+              '&nbsp; 
+              
+              i = link_to '', page, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
               '&nbsp;
-              = link_to 'gallery', page_gallery_images_path(page)
-
 
 br
 
@@ -29,40 +28,14 @@ br
 br
 
 
-
-
-
-
-
-
-
-
-
-/= render 'js/table_sorter'
-/table class="table" id="sortTableExample"
-/  thead
-/    tr
-/      th backdrop
-/      th title
-/      th backend
-/      th Manage
-/  tbody
-/    - @company.pages.each do |page| 
-/      tr
-/        td 
-/          = link_to( image_tag( page.backdrop.image_url :xsmall), edit_page_path(page) )if page.backdrop.image
-/        td = page.title
-/        td = link_to page.title, page
-/        td public
-/        td 
-/          =link_to page do
-/             i class="icon-eye-open"
-/          '&nbsp;
-/          =link_to edit_page_path(page) do
-/            i class="icon-pencil"
-/          '&nbsp;
-/          =link_to(page, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
-/            i class="icon-remove"
-/
-/= link_to 'New page', new_company_page_path(@company),:class => 'btn btn-primary btn-large'
-/
+script 
+  | $(function () {
+      $("a[rel=popover]")
+        .popover({
+          offset: 10,
+          placement: 'right'
+        })
+        .clickx(function(e) {
+          e.preventDefault()
+        })
+      })

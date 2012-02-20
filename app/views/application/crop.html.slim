@@ -39,21 +39,25 @@
         h1 Edit image <small>&nbsp;Adjust the image cropping</small>
 
     .row
-      .span4
-        h3 Preview
+      .span12
+        h4 Preview
         .preview style="width:#{@version_geometry_width}px; height:#{@version_geometry_height}px;"
           = image_tag current_object.image_url, :id => "preview"
+        
+          
+    br
+    hr
+    .row      
+      .span12
+        h4 Drag handles to crop the image
+        = image_tag current_object.image_url, :id => "cropbox"
+    .row
+      .span12
         = form_for current_object, :url => { :action => "crop_update" } do |f|
           - for attribute in [:crop_x, :crop_y, :crop_h, :crop_w]
             = f.hidden_field attribute, :id => attribute
           = f.hidden_field :crop_version, :value => @crop_version
           .form-actions
-            .pull-right
-              = f.submit "Save", :class => "btn btn-primary"
-
-            
-      .span8
-    
-        = image_tag current_object.image_url, :id => "cropbox"
+            = f.submit "Save", :class => "btn btn-primary"
     
     

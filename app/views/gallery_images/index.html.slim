@@ -17,18 +17,24 @@
     table class="table" 
       thead
         tr
-          th Name
-          th Language
-          th Public
+          th big image
+          th thumb
+          
+          th edit images
           th Manage
       tbody
         - @gallery_images.each do |gallery_image|
           tr
+            td = image_tag(gallery_image.image_url :xsmall)
             td = image_tag(gallery_image.image_url :small)
-            td = gallery_image.title
+              
+            /td = gallery_image.title
             td 
-              = link_to 'Show', gallery_image
+              = link_to 'Edit image', crop_gallery_image_path(gallery_image, :version => :large), :class =>'btn'  if gallery_image.image.present?
               '&nbsp;
+              = link_to 'Edit thumb', crop_gallery_image_path(gallery_image, :version => :small), :class =>'btn'  if gallery_image.image.present?
+              
+            td 
               = link_to 'Edit', edit_gallery_image_path(gallery_image)
               '&nbsp;
               = link_to 'Destroy', gallery_image, :confirm => 'Are you sure?', :method => :delete
