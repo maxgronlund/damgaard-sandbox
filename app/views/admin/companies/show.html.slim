@@ -10,7 +10,7 @@
       .span3
         ul class="thumbnails"
           li class="thumbnail span3"
-            = image_tag(@company.backdrop.image_url :medium) if @company.backdrop.image_url
+            = image_tag(@company.backdrop.image_url :medium) if @company.backdrop
             .caption
               h3 Backdrop
               'selected from the backdrop library

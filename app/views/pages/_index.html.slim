@@ -7,7 +7,7 @@ h3 Pages
       - @company.pages.each do |page| 
         li class="span2"
           .thumbnail
-            = image_tag( page.backdrop.image_url :small) if page.backdrop.image
+            = image_tag( page.backdrop.image_url :small) if page.backdrop
             .caption
               h5 = page.title
               br
@@ -19,6 +19,8 @@ h3 Pages
               '&nbsp;
               =link_to(page, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
                 i class="icon-remove"
+              '&nbsp;
+              = link_to 'gallery', page_gallery_images_path(page)
 
 
 br
