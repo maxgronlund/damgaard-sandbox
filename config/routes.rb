@@ -12,7 +12,12 @@ BootstrapOnRails::Application.routes.draw do
     end
   end
 
-  resources :gallery_images
+  resources :gallery_images do
+    member do
+      get 'crop'
+      put 'crop_update'
+    end
+  end
 
 #  resources :pages
 
