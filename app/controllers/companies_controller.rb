@@ -2,7 +2,8 @@ class CompaniesController < InheritedResources::Base
   #layout 'frontend'
   
   def show
-    if Company.nil?
+    #redirect_to admin_index_path
+    if Company.blank?
       redirect_to admin_index_path
     else 
       @company = Company.find(params[:id])
