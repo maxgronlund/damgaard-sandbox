@@ -1,8 +1,20 @@
-h1 Editing gallery_image
+= render 'shared/navigation_menu'
+.top-gap
+.container
+  .content
 
-== render 'form'
-
-= link_to 'Show', @gallery_image
-'|
-= link_to 'Back', gallery_images_path
+    = render 'shared/breadcrumbs', :breadcrumbs => @breadcrumbs unless @breadcrumbs.nil?
+    .page-header
+      h1 Edit image <small>Change the image for the gallery</small>
+    == render 'form'
+    
+    
+    
+/    h1 Editing gallery_image
+/
+/== render 'form'
+/
+/= link_to 'Show', @gallery_image
+/'|
+/= link_to 'Back', gallery_images_path
 

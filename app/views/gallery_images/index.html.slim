@@ -35,9 +35,9 @@
               = link_to 'Edit thumb', crop_gallery_image_path(gallery_image, :version => :small), :class =>'btn'  if gallery_image.image.present?
               
             td 
-              = link_to 'Edit', edit_gallery_image_path(gallery_image)
+              = link_to 'Change image', edit_gallery_image_path(gallery_image), :class => 'btn'
               '&nbsp;
-              = link_to 'Destroy', gallery_image, :confirm => 'Are you sure?', :method => :delete
+              = link_to 'Delete', gallery_image, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
        
 
 
