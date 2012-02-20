@@ -1,0 +1,32 @@
+h3 Backdrops <small>Used for pages</small>
+
+
+
+
+.row
+  .span8
+    ul class="thumbnails"
+      - @backdrops.each do |backdrop| 
+        li class="span2"
+          .thumbnail
+            =  image_tag(backdrop.image_url :small)
+            .caption
+              h5 = backdrop.title
+              br
+              =link_to backdrop do
+                 i class="icon-eye-open"
+              '&nbsp;
+              =link_to edit_backdrop_path(backdrop) do
+                i class="icon-pencil"
+              '&nbsp;
+              =link_to(backdrop, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+                i class="icon-remove"
+  /td = link_to backdrop.title, backdrop, :rel=>'twipsy', :title=>'Show'
+  /td public
+  /td
+
+br
+.pull-right
+  = link_to 'New backdrop', new_backdrop_path,:class => 'btn btn-primary'
+br
+

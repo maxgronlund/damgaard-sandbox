@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @gallery_image.title
+p
+  strong Image:
+  = @gallery_image.image
+p
+  strong Crop params:
+  = @gallery_image.crop_params
+p
+  strong Page:
+  = @gallery_image.page
+
+= link_to 'Edit', edit_gallery_image_path(@gallery_image)
+'|
+= link_to 'Back', gallery_images_path

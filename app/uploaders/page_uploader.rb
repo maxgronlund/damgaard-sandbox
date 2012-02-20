@@ -26,6 +26,8 @@ class PageUploader < CarrierWave::Uploader::Base
   # Create different versions of your uploaded files:  
   cattr_accessor :version_dimensions
   self.version_dimensions = {
+    :xxsmall => [40, 30],
+    :xsmall => [80, 60],
     :small => [160, 120],
     :medium => [260, 180],
     :large => [360, 268],

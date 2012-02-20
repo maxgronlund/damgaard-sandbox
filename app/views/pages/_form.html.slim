@@ -1,0 +1,52 @@
+
+= simple_form_for@page , :validate => true do |f| 
+  -if f.error_notification
+    .alert.alert-error.fade.in
+      = link_to 'x', '#', :class=>"close", :'data-dismiss'=> "alert"
+      = f.error_notification
+
+  fieldset
+    .row
+      .span4
+        = f.input :title ,:input_html => {:class => 'input-xlarge'}
+        = f.input :title_uk ,:input_html => {:class => 'input-xlarge'}
+        /= f.input :company 
+        = f.association :company
+        
+      
+        = link_to '?', '#', :rel=> "popover", :class =>"btn btn-mini", :'data-original-title'=>"Pick an image from the gallery", :'data-content'=>"This is the image that will been shown as the background on the page page"
+        '&nbsp;Backdrop image
+        br
+        = f.select :backdrop_id, @backdrops_options
+        /= f.input :image, :label => false
+        /= f.hidden_field :image_cache
+      .span4
+        /= f.input :body, :label => 'Short description', :optional =>{:rows=>"7"}
+        
+        'Short description DK
+        br
+        textarea id="page_body" class="text optional" rows="20" name="page[body]" cols="40" style="width: 288px; height: 207px;"
+          =@page.body
+      .span4
+        'Short description UK
+        br
+        textarea id="page_body_uk" class="text optional" rows="20" name="page[body_uk]" cols="40" style="width: 288px; height: 207px;"
+          =@page.body_uk
+  .form-actions
+    
+    = f.submit 'Save', :class =>"btn btn-primary", :name => nil
+
+    
+
+
+script 
+  | $(function () {
+      $("a[rel=popover]")
+        .popover({
+          offset: 10,
+          placement: 'right'
+        })
+        .clickx(function(e) {
+          e.preventDefault()
+        })
+      })

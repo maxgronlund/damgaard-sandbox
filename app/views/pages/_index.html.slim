@@ -1,0 +1,65 @@
+h3 Pages
+
+.row
+  .span12
+    ul class="thumbnails"
+      - @company.pages.each do |page| 
+        li class="span2"
+          .thumbnail
+            = image_tag( page.backdrop.image_url :small) if page.backdrop.image
+            .caption
+              h5 = page.title
+              br
+              =link_to page do
+                 i class="icon-eye-open"
+              '&nbsp;
+              =link_to edit_page_path(page) do
+                i class="icon-pencil"
+              '&nbsp;
+              =link_to(page, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+                i class="icon-remove"
+
+
+br
+
+= link_to 'New page', new_company_page_path(@company),:class => 'btn btn-primary'
+br
+
+
+
+
+
+
+
+
+
+
+
+/= render 'js/table_sorter'
+/table class="table" id="sortTableExample"
+/  thead
+/    tr
+/      th backdrop
+/      th title
+/      th backend
+/      th Manage
+/  tbody
+/    - @company.pages.each do |page| 
+/      tr
+/        td 
+/          = link_to( image_tag( page.backdrop.image_url :xsmall), edit_page_path(page) )if page.backdrop.image
+/        td = page.title
+/        td = link_to page.title, page
+/        td public
+/        td 
+/          =link_to page do
+/             i class="icon-eye-open"
+/          '&nbsp;
+/          =link_to edit_page_path(page) do
+/            i class="icon-pencil"
+/          '&nbsp;
+/          =link_to(page, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+/            i class="icon-remove"
+/
+/= link_to 'New page', new_company_page_path(@company),:class => 'btn btn-primary btn-large'
+/

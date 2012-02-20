@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120218124218) do
+ActiveRecord::Schema.define(:version => 20120219225732) do
+
+  create_table "backdrops", :force => true do |t|
+    t.string   "title"
+    t.string   "image"
+    t.text     "crop_params"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "companies", :force => true do |t|
     t.string   "title"
@@ -26,12 +34,14 @@ ActiveRecord::Schema.define(:version => 20120218124218) do
     t.string   "email"
     t.text     "body"
     t.boolean  "publish"
-    t.string   "image"
-    t.text     "crop_params"
     t.string   "headline"
+    t.string   "title_uk"
+    t.string   "headline_uk"
+    t.text     "body_uk"
+    t.integer  "backdrop_id"
   end
 
-  create_table "galleries_overviews", :force => true do |t|
+  create_table "gallery_images", :force => true do |t|
     t.string   "title"
     t.string   "image"
     t.text     "crop_params"
@@ -40,14 +50,17 @@ ActiveRecord::Schema.define(:version => 20120218124218) do
     t.datetime "updated_at",  :null => false
   end
 
-  add_index "galleries_overviews", ["page_id"], :name => "index_galleries_overviews_on_page_id"
+  add_index "gallery_images", ["page_id"], :name => "index_gallery_images_on_page_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "company_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "title_uk"
+    t.text     "body_uk"
+    t.integer  "backdrop_id"
   end
 
   add_index "pages", ["company_id"], :name => "index_pages_on_company_id"

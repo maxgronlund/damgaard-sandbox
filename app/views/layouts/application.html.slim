@@ -7,7 +7,34 @@ html
     /[if lt IE 9]
       script src='http://html5shiv.googlecode.com/svn/trunk/html5.js'
     = stylesheet_link_tag    "application" , :media => "all" 
-    = javascript_include_tag 'application'
+    = stylesheet_link_tag    "bootstrap" , :media => "all" 
+    = stylesheet_link_tag    "bootstrap-responsive.min" , :media => "all" 
+    = stylesheet_link_tag    "jquery.Jcrop" , :media => "all"
+    
+    
+    
+    /= javascript_include_tag 'application'
+    = javascript_include_tag 'jquery', :media => 'all'
+    = javascript_include_tag 'jquery_ujs', :media => 'all'    
+    = javascript_include_tag 'jquery.tablesorter.min'
+    = javascript_include_tag 'jquery.Jcrop.min'
+    = javascript_include_tag 'bootstrap'
+    = javascript_include_tag 'bootstrap-alert'
+    = javascript_include_tag 'bootstrap-tooltip'
+    = javascript_include_tag 'bootstrap-popover'
+    
+    
+    
+    //= require jquery.tablesorter.min
+    //= require jquery.Jcrop.min
+    //= require bootstrap
+    //= require bootstrap-alert
+    //= require bootstrap-tooltip
+    //= require bootstrap-popover
+    
+    
+    
+    
     = csrf_meta_tag
     = yield :head 
 

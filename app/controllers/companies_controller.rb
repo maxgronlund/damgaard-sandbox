@@ -3,42 +3,14 @@ class CompaniesController < InheritedResources::Base
   
   def show
     @company = Company.find(params[:id])
+    @title = session[:locale] == 'dk' ? @company.title : @company.title_uk
+    @headline = session[:locale] == 'dk' ? @company.headline : @company.headline_uk
+    @body = session[:locale] == 'dk' ? @company.body : @company.body_uk
     render :layout => 'frontend'
   end
   
-  def create
-    create! do |success, failure|
-      success.html do
-        if params[:company][:image]
-          redirect_to crop_company_path(@company), :notice => "company created!"
-          session[:go_to_after_edit] = admin_index_path
-        else
-          redirect_to admin_company_path(@company), :notice => "company created!"
-        end
-      end
-      #flash.error = "You are fuckd!"
-      failure.html { render 'new' }
-    end
-  end
-  
   def update
-    if params[:company][:image] && params[:company][:remove_image] != '1'
-      update! { crop_company_path(@company) }
-    else
-      update! { admin_company_path(@company) }
-    end
-  end
-  
-  def crop
-    redirect_to crop_admin_company_path(params[:id])
-  end
-
-  def crop_update
-    redirect_to crop_update_admin_company_path(params[:id])
-  end
-  
-  def destroy
-    destroy! { admin_index_path}
+    update!{ admin_company_path(@company)}
   end
 
 end

@@ -10,9 +10,10 @@
       .span3
         ul class="thumbnails"
           li class="thumbnail span3"
-            = image_tag(@company.image_url :medium)
-            .caption
-              = link_to 'Edit image', crop_admin_company_path(@company, :version => :medium), :class =>'btn'  
+            = image_tag(@company.backdrop.image_url :medium) if @company.backdrop.image_url
+            /.caption
+            /  -if @company.image_url != '/assets/fallback/page.png'
+            /    = link_to 'Edit image', crop_admin_company_path(@company, :version => :medium), :class =>'btn'  
       .span3
         h3 Contact info
         strong street:&nbsp; 
@@ -45,11 +46,10 @@
       .span6
         h3 = @company.headline
         = markdown(@company.body)
-    =link_to 'Edit', edit_admin_company_path(@company), :class => 'btn btn-primary btn-large'
+    =link_to 'Edit', edit_admin_company_path(@company), :class => 'btn btn-primary'
     '&nbsp;
-    =link_to 'Show', company_path(@company), :class => 'btn btn-large'
+    =link_to 'Show', company_path(@company), :class => 'btn'
     hr
-    h1 Pages
-    = render 'admin/pages/index'
-    = link_to 'New page', new_admin_company_page_path(@company),:class => 'btn btn-primary btn-large'
+    = render 'pages/index'
+    
           

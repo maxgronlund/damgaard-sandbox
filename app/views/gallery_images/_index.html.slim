@@ -1,0 +1,16 @@
+h3 Images for the gallery
+
+
+- @page.gallery_images.each do |gallery_image|
+  tr
+    td = gallery_image.title
+    td = gallery_image.image
+    td = gallery_image.crop_params
+    td = gallery_image.page
+    td = link_to 'Show', gallery_image
+    td = link_to 'Edit', edit_gallery_image_path(gallery_image)
+    td = link_to 'Destroy', gallery_image, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+page_gallery_image_path(@page), class: 'btn'

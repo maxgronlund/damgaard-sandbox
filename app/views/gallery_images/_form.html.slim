@@ -1,0 +1,11 @@
+= simple_form_for(@gallery_image) do |f|
+  = f.error_notification
+
+  .inputs
+  |     = f.input :title
+  |     = f.input :image
+  |     = f.input :crop_params
+  |     = f.association :page
+  | 
+  .actions
+    = f.button :submit

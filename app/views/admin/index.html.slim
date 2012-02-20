@@ -6,14 +6,18 @@
     = render 'shared/breadcrumbs', :breadcrumbs => @breadcrumbs unless @breadcrumbs.nil?
     .page-header
       h1 CMS <small>Content Management System</small>
+      
+      
     .row
       .span3
-        h3 Site management
-        
-
+        h2 Site management
+        'From this page you can create update delete and edit all the content
+        br
       .span9
         = render 'shared/messages'
         .well
           = render 'admin/companies/index', :companies => @companies
         .well
           = render 'users/index', :users => @users
+        .well
+          = render 'backdrops/index', :users => @users

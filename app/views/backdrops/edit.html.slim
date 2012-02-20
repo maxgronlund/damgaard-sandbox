@@ -1,0 +1,9 @@
+= render 'shared/navigation_menu'
+.top-gap
+.container
+  .content
+    = render 'shared/breadcrumbs', :breadcrumbs => @breadcrumbs unless @breadcrumbs.nil?
+    .page-header
+      h1 Edit backdrop 
+    == render 'form'
+

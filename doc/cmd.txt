@@ -2,7 +2,22 @@ rails g scaffold user email:string password_hash:string password_salt:string nam
 
 rails g scaffold company title:string
 rails g scaffold page title:string body:text company:belongs_to
-rails g scaffold galleries_overview title:string image:string crop_params:text page:belongs_to
+rails g scaffold gallery_image title:string image:string crop_params:text page:belongs_to
 
 rails g migration AddInfoToCompany street:string zip:string country:string phone:string fax:string email:string
 
+rails g migration AddImageToPage image:string crop_params:text 
+
+rails g scaffold page_gallery 
+rails g scaffold page_image title:string image:string crop_params:text page:page_gallery
+
+rails g migration AddBodyUkToCompany title_uk:string body_uk:text
+rails g migration AddBodyUkToPage title_uk:string body_uk:text
+
+rails g scaffold backdrop title:string image:string crop_params:text
+
+
+rails g model backdrops_pages backdrop_id:integer page_id:integer
+
+rails g migration AddBackdropIdToPage backdrop_id:integer
+rails g migration AddBackdropIdToCompany backdrop_id:integer

@@ -1,28 +1,39 @@
 BootstrapOnRails::Application.routes.draw do
   
-  resources :galleries_overviews
+
+  resource :locale
+  
+  resources :backdrops do
+    member do
+      get 'crop'
+      put 'crop_update'
+    end
+  end
+
+  resources :gallery_images
 
 #  resources :pages
 
   namespace :admin do
     resources :companies do
-      member do
-        get 'crop'
-        put 'crop_update'
-      end
       resources :pages
+      #member do
+      #  get 'crop'
+      #  put 'crop_update'
+      #end
     end
   end
 
   resources :companies do
-    member do
-      get 'crop'
-      put 'crop_update'
-    end
     resources :pages
+    #member do
+    #  get 'crop'
+    #  put 'crop_update'
+    #end
   end
   
   resources :pages do
+    resources :gallery_images
     member do
       get 'crop'
       put 'crop_update'

@@ -1,19 +1,21 @@
 = render 'shared/navigation_menu'
 
 
-= image_tag('damgaard_web.jpg', :id=>"background")
+= image_tag( (@company.backdrop.image_url :large), :id=>"background")
 #maincontent
   .box
     #left-box
       .headline
         h1
-          = @company.headline
+          = @headline
       .content    
-        = markdown(@company.body)
+        = markdown(@body)
     #right-box
       .headline
         h1
-          = @company.title
+          = @title
+      .content
+        'Links to other companies goes here
     
   #solid-red
   

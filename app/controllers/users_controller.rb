@@ -18,7 +18,7 @@ class UsersController < InheritedResources::Base
   end
 
   def show
-    @breadcrumbs = { "Home" => root_path, "Users" => users_path }
+    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, "Users" => users_path }
 
     session[:go_to_after_edit] = user_path(@user)
     #return_path = user_path(@user)  # !!! perhaps a system vide helper ?

@@ -9,27 +9,35 @@
     .row
       .span4
         = f.input :title ,:input_html => {:class => 'input-xlarge'}
+        = f.input :title_uk ,:input_html => {:class => 'input-xlarge'}
         = f.input :headline ,:input_html => {:class => 'input-xlarge'}
-        = f.input :phone ,:input_html => {:class => 'input-xlarge'}
-        = f.input :fax ,:input_html => {:class => 'input-xlarge'}
-        = f.input :email ,:input_html => {:class => 'input-xlarge'}
+        = f.input :headline_uk ,:input_html => {:class => 'input-xlarge'}
+        = link_to '?', '#', :rel=> "popover", :class =>"btn btn-mini", :'data-original-title'=>"Background image", :'data-content'=>"This image will been shown as the background on the company page, you can upload images from the admin page"
+        '&nbsp;Backdrop image
+        br
+        = f.select :backdrop_id, @backdrops_options        
         
       .span4
+        
         = f.input :street
         = f.input :zip
         = f.input :city
         = f.input :country
-        = link_to '?', '#', :rel=> "popover", :class =>"btn btn-mini", :'data-original-title'=>"Background image", :'data-content'=>"This image will been shown as the background on the company page"
-        '&nbsp;Image
-        = f.input :image, :label => false
-        = f.hidden_field :image_cache
+        = f.input :phone 
+        = f.input :fax
+        = f.input :email 
+
       .span4
         /= f.input :body, :label => 'Short description', :optional =>{:rows=>"7"}
         
-        'Short description
+        'Short description DK
         br
         textarea id="company_body" class="text optional" rows="20" name="company[body]" cols="40" style="width: 288px; height: 207px;"
           =@company.body
+        'Short description UK
+        br
+        textarea id="company_body_uk" class="text optional" rows="20" name="company[body_uk]" cols="40" style="width: 288px; height: 207px;"
+          =@company.body_uk
 
   .form-actions
     label class="checkbox"
