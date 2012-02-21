@@ -1,0 +1,14 @@
+= simple_form_for(@menu) do |f|
+  -if f.error_notification
+    .alert.alert-error.fade.in
+      = link_to 'x', '#', :class=>"close", :'data-dismiss'=> "alert"
+      = f.error_notification
+
+  fieldset
+    .row
+      .span6
+        = f.input :title ,:input_html => {:class => 'input-xlarge'}
+        = f.input :title_uk ,:input_html => {:class => 'input-xlarge'}
+        = f.hidden_field :company_id
+  .form-actions
+    = f.submit 'Save', :class =>"btn btn-primary", :name => nil

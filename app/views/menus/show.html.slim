@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @menu.title
+p
+  strong Company:
+  = @menu.company
+
+= link_to 'Edit', edit_menu_path(@menu)
+'|
+= link_to 'Back', menus_path

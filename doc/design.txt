@@ -1,0 +1,3 @@
+a sit has many menus
+
+a page belongs to one menu

@@ -10,7 +10,7 @@
         .headline
           h1#{@title.upcase}
         .content    
-          = markdown(@body.upcase)
+          = markdown(@body)
       .page-gallery
         = image_tag(@gallery_image.image_url :medium) if @gallery_image
    

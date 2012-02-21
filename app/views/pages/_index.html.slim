@@ -1,5 +1,4 @@
 h3 Pages
-'Shows up in menus for the selected comppany
 
 .row
   .span12
@@ -13,7 +12,7 @@ h3 Pages
               br
               i = link_to '', page, :class => "icon-eye-open", :rel => "popover",  :'data-original-title'=>"Show page", :'data-content'=>"View the page as it looks for visitors"
               '&nbsp;
-              i = link_to '', edit_page_path(page), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit page", :'data-content'=>"Edit text. Select backdrop and assign page to menu"
+              i = link_to '', edit_company_page_path(page.company, page), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit page", :'data-content'=>"Edit text. Select backdrop and assign page to menu"
               '&nbsp;
               
               i = link_to '', page_gallery_images_path(page), :class => "icon-film", :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload immages to the page gallery "

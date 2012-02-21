@@ -1,0 +1,35 @@
+h3 Menus for #{@company.title.capitalize!}
+.row
+  .span6
+    table class="table"
+      thead
+        tr
+          th Title DK
+          th Title UK
+          th Manage
+      tbody
+        - @company.menus.each do |menu|
+          tr
+            td = menu.title.upcase
+            td = menu.title_uk.upcase
+            td 
+              = link_to 'Show', menu
+              = link_to 'Edit', edit_company_menu_path(menu.company, menu)
+              = link_to 'Destroy', menu, :confirm => 'Are you sure?', :method => :delete
+    
+      
+br
+
+= link_to 'New Menu', new_company_menu_path(@company), :class => 'btn btn-primary'
+
+script 
+  | $(function () {
+      $("a[rel=popover]")
+        .popover({
+          offset: 10,
+          placement: 'right'
+        })
+        .clickx(function(e) {
+          e.preventDefault()
+        })
+      })

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120219225732) do
+ActiveRecord::Schema.define(:version => 20120220222930) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(:version => 20120219225732) do
 
   add_index "gallery_images", ["page_id"], :name => "index_gallery_images_on_page_id"
 
+  create_table "menus", :force => true do |t|
+    t.string   "title"
+    t.string   "title_uk"
+    t.integer  "company_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "menus", ["company_id"], :name => "index_menus_on_company_id"
+
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "body"
@@ -61,9 +71,11 @@ ActiveRecord::Schema.define(:version => 20120219225732) do
     t.string   "title_uk"
     t.text     "body_uk"
     t.integer  "backdrop_id"
+    t.integer  "menu_id"
   end
 
   add_index "pages", ["company_id"], :name => "index_pages_on_company_id"
+  add_index "pages", ["menu_id"], :name => "index_pages_on_menu_id"
 
   create_table "users", :force => true do |t|
     t.string   "email"

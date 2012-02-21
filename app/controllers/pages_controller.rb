@@ -5,12 +5,19 @@ class PagesController < InheritedResources::Base
   
   
   def new
+    @company = Company.find(params[:company_id])
+    @menus = @company.menus
+    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, @company.title.capitalize => admin_company_path(@company) }
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
     new!
   end
   
   def edit
+    @page = Page.find(params[:id])
+    @menus = @page.company.menus
+    @menu_options = @menus.map { |menu| [menu.title, menu.id] }
+    
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
     edit!

@@ -1,5 +1,6 @@
 class Company < ActiveRecord::Base
   has_many :pages
+  has_many :menus
   belongs_to :backdrop
   
   validates_presence_of :title, :title_uk

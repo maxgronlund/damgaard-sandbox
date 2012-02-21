@@ -1,6 +1,8 @@
 BootstrapOnRails::Application.routes.draw do
   
 
+  resources :menus
+
   resource :locale
   
   resources :backdrops do
@@ -30,6 +32,7 @@ BootstrapOnRails::Application.routes.draw do
   end
 
   resources :companies do
+    resources :menus
     resources :pages
     #member do
     #  get 'crop'

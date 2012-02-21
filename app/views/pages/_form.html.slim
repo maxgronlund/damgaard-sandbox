@@ -10,18 +10,17 @@
       .span4
         = f.input :title ,:input_html => {:class => 'input-xlarge'}
         = f.input :title_uk ,:input_html => {:class => 'input-xlarge'}
-        /= f.input :company 
-        = f.association :company
+        = f.hidden_field :company_id
         
       
         = link_to '?', '#', :rel=> "popover", :class =>"btn btn-mini", :'data-original-title'=>"Pick an image from the gallery", :'data-content'=>"This is the image that will been shown as the background on the page page"
         '&nbsp;Backdrop image
         br
         = f.select :backdrop_id, @backdrops_options
-        /= f.input :image, :label => false
-        /= f.hidden_field :image_cache
+        br
+        = f.input :menu_id, :collection => @menus
       .span4
-        /= f.input :body, :label => 'Short description', :optional =>{:rows=>"7"}
+
         
         'Short description DK
         br
