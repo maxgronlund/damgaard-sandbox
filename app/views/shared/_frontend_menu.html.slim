@@ -2,6 +2,7 @@
   .navbar-inner
     .container
       ul class="nav"
+        li = link_to 'home', root_path
         - if session[:locale] == 'dk'
           li =link_to 'english', locale_path(:locale => 'en'), :method => :post
         -else
