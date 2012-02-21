@@ -18,6 +18,8 @@ class PagesController < InheritedResources::Base
     @menus = @page.company.menus
     @menu_options = @menus.map { |menu| [menu.title, menu.id] }
     
+    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, @page.company.title.capitalize => admin_company_path(@page.company) }
+    
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
     edit!

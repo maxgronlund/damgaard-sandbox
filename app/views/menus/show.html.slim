@@ -1,12 +1,9 @@
-p#notice = notice
 
-p
-  strong Title:
-  = @menu.title
-p
-  strong Company:
-  = @menu.company
+h1 = @menu.title
 
-= link_to 'Edit', edit_menu_path(@menu)
-'|
-= link_to 'Back', menus_path
+- @menu.pages.each do |page|
+  = page.title
+
+
+
+

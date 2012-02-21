@@ -8,10 +8,23 @@
           li =link_to 'dansk', locale_path(:locale => 'dk'), :method => :post
           
       ul class="nav pull-right"
-        - company.menus.each_with_index do |menu, index|
-          li = link_to ((index+1).to_s + ': ' + menu.title.upcase), '#'
-        ==render 'shared/drop'
-          
+        == render 'shared/page_dropdown', :company => company
+      
+        /- company.menus.each_with_index do |menu, index|
+        /  ul class="nav pills"
+        /    li class="dropdown" id="#{'menu'+(index+1).to_s}"
+        /      = link_to '#', :class=>"dropdown-toggle", :'data-toggle'=>"dropdown", :href=>"#{'menu'+(index+1).to_s}", do
+        /        '#{((index+1).to_s + ': ' + menu.title.upcase)}
+        /        b class="caret"
+        /        
+        /      ul class="dropdown-menu"
+        /        - menu.pages.each do |page|
+        /          li =link_to page.title, page
+        /        
+
+script
+  | $('.dropdown-toggle').dropdown()
+
           
           
 

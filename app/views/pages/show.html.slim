@@ -1,4 +1,4 @@
-= render 'shared/navigation_menu'
+= render 'shared/frontend_menu', :company => @page.company
 
 
 = image_tag( (@page.backdrop.image_url :large), :id=>"background") if @page.backdrop
