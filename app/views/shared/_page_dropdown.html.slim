@@ -1,16 +1,27 @@
+
 - company.menus.each_with_index do |menu, index|
   ul class="nav pills"
     li class="dropdown" id="#{'menu'+(index+1).to_s}"
-      = link_to '#', :class=>"dropdown-toggle", :'data-toggle'=>"dropdown", :href=>"#{'menu'+(index+1).to_s}", do
-        - if session[:locale] == 'dk'
-          '#{((index+1).to_s + ': ' + menu.title.upcase)}
-        - else
-          '#{((index+1).to_s + ': ' + menu.title_uk.upcase)}
-        b class="caret"
-        
-      ul class="dropdown-menu"
-        - menu.pages.each do |page|
+      - if menu.pages.length == 0
+      
+      - elsif menu.pages.length == 1
+        = link_to  menu.pages.first do
           - if session[:locale] == 'dk'
-            li =link_to page.title, page
-          -else
-            li =link_to page.title_uk, page
+            '#{((index+1).to_s + ': ' + menu.pages.first.title.upcase)}
+          - else                        
+            '#{((index+1).to_s + ': ' + menu.pages.first.title_uk.upcase)}
+
+      -else
+        = link_to '#', :class=>"dropdown-toggle", :'data-toggle'=>"dropdown", :href=>"#{'menu'+(index+1).to_s}", do
+          - if session[:locale] == 'dk'
+            '#{((index+1).to_s + ': ' + menu.title.upcase)}
+          - else
+            '#{((index+1).to_s + ': ' + menu.title_uk.upcase)}
+          b class="caret"
+          
+        ul class="dropdown-menu"
+          - menu.pages.each do |page|
+            - if session[:locale] == 'dk'
+              li =link_to page.title, page
+            -else
+              li =link_to page.title_uk, page

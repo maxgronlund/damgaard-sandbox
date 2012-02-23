@@ -13,9 +13,14 @@ h3 Menus for #{@company.title.capitalize!}
             td = menu.title.upcase
             td = menu.title_uk.upcase
             td 
-              = link_to 'Show', menu
-              = link_to 'Edit', edit_company_menu_path(menu.company, menu)
-              = link_to 'Destroy', menu, :confirm => 'Are you sure?', :method => :delete
+              '&nbsp;
+              i = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"The menu shows up in the top bar when the company is selected"
+              '&nbsp;
+              i = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
+              '&nbsp;
+              
+              /= link_to 'Edit', edit_company_menu_path(menu.company, menu)
+              /= link_to 'Destroy', menu, :confirm => 'Are you sure?', :method => :delete
     
       
 br
