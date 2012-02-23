@@ -2,11 +2,14 @@
   .navbar-inner
     .container
       ul class="nav"
-        li = link_to 'home', root_path
+        - if current_user
+          li = link_to 'LOG OUT', log_out_path
+          li = link_to 'ADMIN', admin_index_path
+        li = link_to 'HOME', root_path
         - if session[:locale] == 'dk'
-          li =link_to 'english', locale_path(:locale => 'en'), :method => :post
+          li =link_to 'ENGLISH', locale_path(:locale => 'en'), :method => :post
         -else
-          li =link_to 'dansk', locale_path(:locale => 'dk'), :method => :post
+          li =link_to 'DANSK', locale_path(:locale => 'dk'), :method => :post
           
       ul class="nav pull-right"
         == render 'shared/page_dropdown', :company => company 

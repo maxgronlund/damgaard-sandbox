@@ -6,7 +6,7 @@ class UsersController < InheritedResources::Base
 
   def index
     @menu='admin'
-    #return_path = users_path # or request.referer
+    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path }
     session[:go_to_after_edit] = users_path
     #@users = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(2)
     #if mobile_device?
@@ -18,7 +18,7 @@ class UsersController < InheritedResources::Base
   end
 
   def show
-    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, "Users" => users_path }
+    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path }
 
     session[:go_to_after_edit] = user_path(@user)
     #return_path = user_path(@user)  # !!! perhaps a system vide helper ?
@@ -48,12 +48,12 @@ class UsersController < InheritedResources::Base
         end
 
         if params[:user][:image]
-          redirect_to crop_user_path(@user), :notice => "Signed up!"
+          redirect_to crop_user_path(@user), :notice => "User created!"
         else
           #if mobile_device?
           #  redirect_to users_url
           #else
-            redirect_to user_path(@user), :notice => "Signed up!"
+            redirect_to admin_index_path, :notice => "User created!"
           #end
         end
       end
@@ -68,7 +68,7 @@ class UsersController < InheritedResources::Base
     if params[:user][:image] && params[:user][:remove_image] != '1'
       update! { crop_user_path }
     else
-      update! { user_path(@user) }
+      update! { admin_index_path }
     end
   end
 
@@ -95,7 +95,7 @@ class UsersController < InheritedResources::Base
   def destroy
     @user = User.find(params[:id])
     @user.destroy
-    redirect_to users_url 
+    redirect_to admin_index_path 
   end
   
   
