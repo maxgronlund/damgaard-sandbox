@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   
   helper_method :current_user
   
-
+  before_filter :set_user_language
   
 private 
   def current_user
@@ -14,4 +14,13 @@ private
     redirect_to no_access_index_path, :alert => exception.message
   end
   
+  def set_user_language
+
+      session[:locale] = session[:locale]  || 'dk'
+
+    #session[:locale] = 'dk'
+  end
+  
 end
+
+

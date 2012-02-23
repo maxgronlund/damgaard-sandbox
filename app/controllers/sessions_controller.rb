@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+
   end
   
   def create
@@ -21,7 +22,7 @@ class SessionsController < ApplicationController
   
   
   def destroy
-    mesage = 'Bye bye '+ current_user.name + '! hope to see you back soon'
+    mesage = 'Bye bye '+ current_user.name + '! hope to see you back soon' unless !current_user
     cookies.delete(:auth_token)
     redirect_to root_url, :notice => mesage
   end
