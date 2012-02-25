@@ -1,6 +1,13 @@
 class GalleryImagesController < InheritedResources::Base
   belongs_to :page , :optional => true
   
+  def index
+    @page = Page.find(params[:page_id])
+    @breadcrumbs = { "Home" => root_path, 
+                      'Admin' => admin_index_path, 
+                      @page.company.title.capitalize => admin_company_path(@page.company) }
+    index!
+  end
   def show
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
     show!
