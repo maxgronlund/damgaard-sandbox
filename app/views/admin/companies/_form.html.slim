@@ -15,7 +15,8 @@
         = link_to '?', '#', :rel=> "popover", :class =>"btn btn-mini", :'data-original-title'=>"Background image", :'data-content'=>"This image will been shown as the background on the company page, you can upload images from the admin page"
         '&nbsp;Backdrop image
         br
-        = f.select :backdrop_id, @backdrops_options        
+        = f.select :backdrop_id, @backdrops_options       
+        = f.input :color_theme 
         
       .span4
         

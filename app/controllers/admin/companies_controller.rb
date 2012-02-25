@@ -8,7 +8,7 @@ class Admin::CompaniesController < InheritedResources::Base
 
   def edit
     @company    = Company.find(params[:id])
-    @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path, @company.title => admin_company_path(@company) }
+    @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path, @company.title.capitalize => admin_company_path(@company) }
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
     edit! { admin_index_path }

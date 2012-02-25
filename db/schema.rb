@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120220222930) do
+ActiveRecord::Schema.define(:version => 20120225212648) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20120220222930) do
     t.string   "headline_uk"
     t.text     "body_uk"
     t.integer  "backdrop_id"
+    t.string   "color_theme"
   end
 
   create_table "gallery_images", :force => true do |t|
