@@ -33,7 +33,7 @@ class PagesController < InheritedResources::Base
   def show
     
     @page = Page.find(params[:id])
-    @gallery_image = @page.gallery_images.first
+    #@gallery_image = @page.gallery_images.first
     @title = session[:locale] == 'dk' ? @page.title : @page.title_uk
     @body = session[:locale] == 'dk' ? @page.body : @page.body_uk
     render :layout => 'frontend'

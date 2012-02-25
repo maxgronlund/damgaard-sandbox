@@ -16,7 +16,7 @@ class GalleryUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "/assets/fallback/" + [version_name, "image.png"].compact.join('_')
+    "/assets/fallback/" + [version_name, "gallery_image.png"].compact.join('_')
   end
 
   # Process files as they are uploaded:
@@ -29,7 +29,7 @@ class GalleryUploader < CarrierWave::Uploader::Base
     :xxsmall => [40, 30],
     :xsmall => [98, 80],
     :small => [540, 80],
-    :medium => [540, 440],
+    :medium => [540, 446],
     :large => [360, 268],
 
   }

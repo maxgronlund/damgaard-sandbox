@@ -25,12 +25,14 @@
       tbody
         - @gallery_images.each do |gallery_image|
           tr
-            td = image_tag(gallery_image.image_url :xsmall)
+            td
+              .gallery-admin-thumb
+                = image_tag(gallery_image.image_url(:medium) ,{:height => 80})
             td = image_tag(gallery_image.image_url :small)
               
             /td = gallery_image.title
             td 
-              = link_to 'Edit image', crop_gallery_image_path(gallery_image, :version => :large), :class =>'btn'  if gallery_image.image.present?
+              = link_to 'Edit image', crop_gallery_image_path(gallery_image, :version => :medium), :class =>'btn'  if gallery_image.image.present?
               '&nbsp;
               = link_to 'Edit thumb', crop_gallery_image_path(gallery_image, :version => :small), :class =>'btn'  if gallery_image.image.present?
               

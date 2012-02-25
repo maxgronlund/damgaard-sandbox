@@ -15,10 +15,7 @@ private
   end
   
   def set_user_language
-
-      session[:locale] = session[:locale]  || 'dk'
-
-    #session[:locale] = 'dk'
+    session[:locale] = session[:locale]  || 'dk'
   end
   
 end
