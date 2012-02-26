@@ -1,5 +1,5 @@
 
-= simple_form_for@company , :validate => true do |f| 
+= simple_form_for @company , :validate => true do |f| 
   -if f.error_notification
     .alert.alert-error.fade.in
       = link_to 'x', '#', :class=>"close", :'data-dismiss'=> "alert"
@@ -18,27 +18,26 @@
         = f.select :backdrop_id, @backdrops_options       
         = f.input :color_theme 
         
+        
       .span4
         
-        = f.input :street
-        = f.input :zip
-        = f.input :city
-        = f.input :country
-        = f.input :phone 
-        = f.input :fax
-        = f.input :email 
+        = f.input :street,:input_html => {:class => 'input-xlarge'}
+        = f.input :zip,:input_html => {:class => 'input-xlarge'}
+        = f.input :city,:input_html => {:class => 'input-xlarge'}
+        = f.input :country,:input_html => {:class => 'input-xlarge'}
+        = f.input :phone ,:input_html => {:class => 'input-xlarge'}
+        = f.input :fax,:input_html => {:class => 'input-xlarge'}
+        = f.input :email ,:input_html => {:class => 'input-xlarge'}
+        = f.input :google_map,:input_html => {:style=>"width: 280px; height: 207px;"}
 
       .span4
-        /= f.input :body, :label => 'Short description', :optional =>{:rows=>"7"}
-        
         'Short description DK
         br
-        textarea id="company_body" class="text optional" rows="20" name="company[body]" cols="40" style="width: 288px; height: 207px;"
-          =@company.body
+        = f.input :body,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
         'Short description UK
         br
-        textarea id="company_body_uk" class="text optional" rows="20" name="company[body_uk]" cols="40" style="width: 288px; height: 207px;"
-          =@company.body_uk
+        = f.input :body_uk,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
+      
 
   .form-actions
     label class="checkbox"

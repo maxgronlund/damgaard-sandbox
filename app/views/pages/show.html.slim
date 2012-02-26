@@ -1,9 +1,13 @@
 = render 'shared/frontend_menu', :company => @page.company
 
+.backdrop
+  = image_tag( (@page.backdrop.image_url :large), :id=>"background") if @page.backdrop
 
-= image_tag( (@page.backdrop.image_url :large), :id=>"background") if @page.backdrop
+
+
 #maincontent
   .damgaard-logo 
+    = link_to image_tag( 'damgaard_logo.png'), root_path
   .box
     #page
       .page-content
@@ -12,20 +16,23 @@
         .content    
           = markdown(@body)
       .page-gallery
-        .gallery
-          - if @page.gallery_images.size < 1
-            = image_tag(@page.backdrop.image_url(:large),{:width => 542, :height => 426}) if @page.backdrop
-          .gallery-thumbs
-            - @page.gallery_images.each do |gallery_image|
-              = link_to image_tag(gallery_image.image_url :small), gallery_image.image_url(:medium), class: 'gallery-thumb'
-          .gallery-preview
-          .clear_both
-        .gallery_preload_area
+        - if @page.show_map
+          .google_map
+            = link_to '', '#', :title => @page.company.google_map
+        -else
+          .gallery
+            - if @page.gallery_images.size < 1
+              = image_tag(@page.backdrop.image_url(:large),{:width => 542, :height => 426}) if @page.backdrop
+            .gallery-thumbs
+              - @page.gallery_images.each do |gallery_image|
+                = link_to image_tag(gallery_image.image_url :small), gallery_image.image_url(:medium), class: 'gallery-thumb'
+            .gallery-preview
+            .clear_both
+          .gallery_preload_area
         
-   
-    
   #solid-red style="background-color:#{@page.company.color_theme}"
   .black-bottom
+  .backdrop_preload_area
   
 = render 'js/animated_back'
 

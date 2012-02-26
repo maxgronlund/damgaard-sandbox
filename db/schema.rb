@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120225212648) do
+ActiveRecord::Schema.define(:version => 20120226192652) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20120225212648) do
     t.text     "body_uk"
     t.integer  "backdrop_id"
     t.string   "color_theme"
+    t.text     "google_map"
   end
 
   create_table "gallery_images", :force => true do |t|
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20120225212648) do
     t.text     "body_uk"
     t.integer  "backdrop_id"
     t.integer  "menu_id"
+    t.boolean  "show_map"
   end
 
   add_index "pages", ["company_id"], :name => "index_pages_on_company_id"

@@ -10,6 +10,7 @@ function place_bottom(){
   });
 }
 
+
 $(function($) {
   $.fn.fullBg = function(){
     var bgImg = $(this);
@@ -59,6 +60,29 @@ $(function($) {
 })
 
 $("document").ready(function() {
-	$("#background").animate({ left: "-100", top: "-50" }, 10000, "swing");
-	
+  
+  var image_url = $('#background').attr('src');
+  $('#background').hide();
+  
+  $('.backdrop_preload_area').html('<img src="'+image_url+'"/>');
+  
+  $('.backdrop_preload_area img').imgpreload(function(){
+
+    $("#background").fadeIn("slow");
+    $("#background").animate({ left: "-100", top: "-50" }, 10000, "swing");
+    
+    var gmap = $('.google_map a').attr('title');
+    
+    // load from dom
+    var intId = setInterval(load_google_map,200);
+    function load_google_map(){
+      $('.google_map').delay(2000).html(gmap);
+      clearInterval(intId);  
+    }
+        
+        
+    
+    //$('.google_map').delay(2000).html(gmap);
+
+  });
 });

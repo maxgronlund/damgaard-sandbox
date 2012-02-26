@@ -4,6 +4,7 @@
 = image_tag( (@company.backdrop.image_url :large), :id=>"background") if @company.backdrop
 #maincontent
   .damgaard-logo
+    = link_to image_tag( 'damgaard_logo.png'), root_path
   .box
     #left-box
       .headline
