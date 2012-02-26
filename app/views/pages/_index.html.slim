@@ -11,18 +11,17 @@ h3 Pages
             .caption
               h5 = truncate(page.title, :length => 12)
               br
-              =link_to page do
-                 i class="icon-eye-open"
-              '&nbsp;
-              =link_to edit_page_path(page) do
-                i class="icon-pencil"
-              '&nbsp;
-              =link_to(page, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
-                i class="icon-remove"
-  /td = link_to backdrop.title, backdrop, :rel=>'twipsy', :title=>'Show'
-  /td public
-  /td
 
+              i = link_to '', page, :class => "icon-eye-open", :rel => "popover",  :'data-original-title'=>"Show page", :'data-content'=>"View the page as it looks for visitors"
+              '&nbsp;
+              i = link_to '', edit_company_page_path(page.company, page), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit #{page.title}", :'data-content'=>"Edit text. Select backdrop and assign page to menu"
+              '&nbsp;
+              
+              i = link_to '', page_gallery_images_path(page), :class => "icon-film", :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload immages to the page gallery "
+              '&nbsp; 
+              
+              i = link_to '', page, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
+              '&nbsp;
 br
 
 = link_to 'New page', new_company_page_path(@company),:class => 'btn btn-primary'

@@ -43,5 +43,5 @@
        
 
 
-
-    = link_to 'New Gallery image', new_page_gallery_image_path(@page), class: 'btn btn-primary'
+    -if @page.gallery_images.size < 5
+      = link_to 'New Gallery image', new_page_gallery_image_path(@page), class: 'btn btn-primary'
