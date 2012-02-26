@@ -47,11 +47,21 @@ p {
 	width: 100%;
 	height:100%;
 
-	}
+}
 
 #page-top{
   width:960;
-  margin-top: 150px;
+  height: 260px;
+}
+
+.damgaard-logo{
+  width: 960px;
+	margin: auto;
+  margin-top:80px;
+  background-image: url('<%= asset_path "damgaard_logo.png" %>');
+  background-repeat:no-repeat;
+  height:170px;
+
 }
 
 #company-top{
@@ -159,19 +169,21 @@ p {
   background-image: linear-gradient(top, #fff, #fff);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+  /*
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
   -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  */
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: #ffffff;
 /*    font-weight: bold;*/
     margin: 0;
-    text-rendering: optimizelegibility;
+/*    text-rendering: optimizelegibility;*/
 }
 
 a {
@@ -193,8 +205,8 @@ a:hover {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 .navbar .nav > li > a:hover {
-  background-color: #dddddd;
-  color: #333333;
+/*  background-color: #dddddd;*/
+  color: #666666;
   text-decoration: none;
 }
 .navbar .nav .active > a, .navbar .nav .active > a:hover {
@@ -255,13 +267,28 @@ a:hover {
   border-top-color: #000000;
 }
 
+.navbar .nav .open > .dropdown-toggle, .navbar .nav .active > .dropdown-toggle, .navbar .nav .open.active > .dropdown-toggle {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+
+.navbar .dropdown-menu:after {
+    border-bottom: none;
+}
+
+.navbar .dropdown-menu:before {
+    border-bottom: none;
+}
+
+
+
 .container {
     width: 960px;
 }
 
 .black-bottom{
   background-color:#000;
-  margin-top:100px;
+  margin-top:60px;
   width:100%;
   height:100px;
 }

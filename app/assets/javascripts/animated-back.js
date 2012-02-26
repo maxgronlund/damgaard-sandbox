@@ -6,7 +6,7 @@ function place_bottom(){
 	var win_height = $(window).height();
 
 	$(".black-bottom").css( {
-    height: (win_height - top_pos) - 100 +'px'
+    height: (win_height - top_pos) - 60 +'px'
   });
 }
 
