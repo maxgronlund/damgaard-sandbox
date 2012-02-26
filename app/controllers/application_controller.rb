@@ -11,7 +11,8 @@ private
   end
   
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to no_access_index_path, :alert => exception.message
+    #redirect_to no_access_index_path, :alert => exception.message
+    redirect_to root_path
   end
   
   def set_user_language

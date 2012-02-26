@@ -1,5 +1,5 @@
 class BackdropsController < InheritedResources::Base
-  
+  load_and_authorize_resource
   def show
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
     show!

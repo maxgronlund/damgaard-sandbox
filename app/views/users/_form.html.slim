@@ -16,9 +16,9 @@
       = f.hidden_field :image_cache
     
       - if @user.image.present?
-        br
         = f.check_box :remove_image
-        '%nbsp;Remove image
+        '&nbsp;Remove image
+        br
 
       - if current_user && current_user.admin_or_super?
         - unless @user.id ==1

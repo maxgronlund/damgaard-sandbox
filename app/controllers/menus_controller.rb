@@ -1,4 +1,5 @@
 class MenusController < InheritedResources::Base
+  load_and_authorize_resource
   belongs_to :company , :optional => true
   
   def new

@@ -25,19 +25,18 @@ table class="table" id="sortTableExample"
             i class="icon-remove"
                 
 
-  
-br
-.pull-right
+- if can?( :create, User ) 
+  br
   = link_to 'New user', new_user_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new user", :'data-content'=>"To sign up a new user all you need is an email and a password"
-br
-script 
-  | $(function () {
-      $("a[rel=popover]")
-        .popover({
-          offset: 10,
-          placement: 'left'
+  br
+  script 
+    | $(function () {
+        $("a[rel=popover]")
+          .popover({
+            offset: 10,
+            placement: 'left'
+          })
+          .clickx(function(e) {
+            e.preventDefault()
+          })
         })
-        .clickx(function(e) {
-          e.preventDefault()
-        })
-      })

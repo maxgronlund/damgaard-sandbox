@@ -31,18 +31,17 @@ table class="table"
             i class="icon-trash"   
           //= link_to 'delete', company, :confirm => 'Are you sure?', :method => :delete'
   
-
-.pull-right
+- if can?( :create, Company ) 
   = link_to 'New company', new_admin_company_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new company", :'data-content'=>"After creating a company you have to create pages for the company"
-br
-script 
-  | $(function () {
-      $("a[rel=popover]")
-        .popover({
-          offset: 10,
-          placement: 'left'
+  br
+  script 
+    | $(function () {
+        $("a[rel=popover]")
+          .popover({
+            offset: 10,
+            placement: 'left'
+          })
+          .clickx(function(e) {
+            e.preventDefault()
+          })
         })
-        .clickx(function(e) {
-          e.preventDefault()
-        })
-      })

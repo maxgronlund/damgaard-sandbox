@@ -11,7 +11,7 @@ h3 Backdrops <small>Used for pages</small>
           .thumbnail
             =  image_tag(backdrop.image_url :small)
             .caption
-              h5 = backdrop.title
+              h5 = truncate(backdrop.title, :length => 12)
               br
               =link_to backdrop do
                  i class="icon-eye-open"
@@ -26,8 +26,8 @@ h3 Backdrops <small>Used for pages</small>
   /td
 
 br
-.pull-right
-  = link_to 'New backdrop', new_backdrop_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new backdrop", :'data-content'=>"After creating a backdrop you can assign it to companies and pages"
+
+= link_to 'New backdrop', new_backdrop_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new backdrop", :'data-content'=>"After creating a backdrop you can assign it to companies and pages"
 br
 script 
   | $(function () {

@@ -6,11 +6,13 @@ class Ability
       if user.super?
         can :manage, :all
       elsif user.admin?
-        can :manage, User
-
-        
-        # add application-specific changes below
-        
+        can :edit, Backdrop
+        can :edit, Company
+        can :read, Company
+        can :edit, GalleryImage
+        can :edit, Menu
+        can :edit, Page
+        can :edit, User
         
       #elsif user.member?
       #  # Ordinary user
@@ -23,7 +25,7 @@ class Ability
     else
       # When not logged in
       #can :create, User # <----------- Uncomment this to alow users to signup by them self
-      #can :read, User
+      can :read, Page
 
       
       # add application-specific changes below

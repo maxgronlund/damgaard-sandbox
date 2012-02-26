@@ -31,7 +31,7 @@ class UsersController < InheritedResources::Base
   end
   
   def edit
-    @breadcrumbs = { "Home" => root_path, "Users" => users_path, @user.name => @user }
+    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, @user.name.capitalize => user_path(@user) }
     edit!
   end
 

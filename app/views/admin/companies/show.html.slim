@@ -8,47 +8,49 @@
       page-header
         h1#{@company.title} <small>Company info</small>
       .row
-        .span3
-          ul class="thumbnails"
-            li class="thumbnail span3"
-              = image_tag(@company.backdrop.image_url :medium) if @company.backdrop
-              .caption
-                h3 Backdrop
-                'selected from the backdrop library
-          'color
-          i format #RRGGBB
-          br
-          #collor-theme style="background-color:#{@company.color_theme}"
-            '&nbsp;
-        .span3
-          h3 Contact info
-          strong street:&nbsp; 
-          = @company.street
-          br
-          strong zip:&nbsp; 
-          = @company.zip
-          br
-          
-          strong city:&nbsp; 
-          = @company.city
-          br
-          
-          strong country:&nbsp; 
-          = @company.country
-          br
-          
-          strong phone:&nbsp; 
-          = @company.phone
-          br
-          
-          strong fax:&nbsp; 
-          = @company.fax
-          br
-          
-          strong email:&nbsp; 
-          = @company.email
-          br
-          br
+        .span5
+          .row
+            .span3
+              ul class="thumbnails"
+                li class="thumbnail span3"
+                  = image_tag(@company.backdrop.image_url :medium) if @company.backdrop
+                  .caption
+                    h3 Backdrop
+                    'selected from the backdrop library
+              'color
+              i format #RRGGBB
+              br
+              #collor-theme style="background-color:#{@company.color_theme}"
+                '&nbsp;
+            .span2
+              h3 Contact info
+              strong street:&nbsp; 
+              = @company.street
+              br
+              strong zip:&nbsp; 
+              = @company.zip
+              br
+              
+              strong city:&nbsp; 
+              = @company.city
+              br
+              
+              strong country:&nbsp; 
+              = @company.country
+              br
+              
+              strong phone:&nbsp; 
+              = @company.phone
+              br
+              
+              strong fax:&nbsp; 
+              = @company.fax
+              br
+              
+              strong email:&nbsp; 
+              = @company.email
+              br
+              br
         .span6
           h3 = @company.headline
           = markdown(@company.body)

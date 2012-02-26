@@ -1,26 +1,27 @@
 h3 Pages
 
+
 .row
-  .span11
+  .span8
     ul class="thumbnails"
       - @company.pages.each do |page| 
         li class="span2"
           .thumbnail
-            = link_to( image_tag( page.backdrop.image_url :small), edit_company_page_path(page.company, page) )if page.backdrop
+            =  image_tag(page.backdrop.image_url :small)if page.backdrop
             .caption
-              h5 = truncate(page.title, :length => 20)
-              /truncate("Once upon a time in a world far far away", :length => 17)"Once upon a time in a world far far away", :length => 17)
+              h5 = truncate(page.title, :length => 12)
               br
-              i = link_to '', page, :class => "icon-eye-open", :rel => "popover",  :'data-original-title'=>"Show page", :'data-content'=>"View the page as it looks for visitors"
+              =link_to page do
+                 i class="icon-eye-open"
               '&nbsp;
-              i = link_to '', edit_company_page_path(page.company, page), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit #{page.title}", :'data-content'=>"Edit text. Select backdrop and assign page to menu"
+              =link_to edit_page_path(page) do
+                i class="icon-pencil"
               '&nbsp;
-              
-              i = link_to '', page_gallery_images_path(page), :class => "icon-film", :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload immages to the page gallery "
-              '&nbsp; 
-              
-              i = link_to '', page, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
-              '&nbsp;
+              =link_to(page, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+                i class="icon-remove"
+  /td = link_to backdrop.title, backdrop, :rel=>'twipsy', :title=>'Show'
+  /td public
+  /td
 
 br
 
@@ -39,3 +40,45 @@ script
           e.preventDefault()
         })
       })
+
+
+/.row
+/  .span11
+/    ul class="thumbnails"
+/      - @company.pages.each do |page| 
+/        li class="span2"
+/          .thumbnail
+/            = link_to( image_tag( page.backdrop.image_url :small), edit_company_page_path(page.company, page) )if page.backdrop
+/            .caption
+/              h5 = truncate(page.title, :length => 20)
+/              /truncate("Once upon a time in a world far far away", :length => 17)"Once upon a time in a world far far away", :length => 17)
+/              br
+/              i = link_to '', page, :class => "icon-eye-open", :rel => "popover",  :'data-original-title'=>"Show page", :'data-content'=>"View the page as it looks for visitors"
+/              '&nbsp;
+/              i = link_to '', edit_company_page_path(page.company, page), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit #{page.title}", :'data-content'=>"Edit text. Select backdrop and assign page to menu"
+/              '&nbsp;
+/              
+/              i = link_to '', page_gallery_images_path(page), :class => "icon-film", :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload immages to the page gallery "
+/              '&nbsp; 
+/              
+/              i = link_to '', page, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
+/              '&nbsp;
+/
+/br
+/
+/= link_to 'New page', new_company_page_path(@company),:class => 'btn btn-primary'
+/br
+/
+/
+/script 
+/  | $(function () {
+/      $("a[rel=popover]")
+/        .popover({
+/          offset: 10,
+/          placement: 'right'
+/        })
+/        .clickx(function(e) {
+/          e.preventDefault()
+/        })
+/      })
+/
