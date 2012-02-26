@@ -1,6 +1,15 @@
 var imgwidth;
 var imgheight;
 
+function place_bottom(){
+  var top_pos = $(".black-bottom").position().top;
+	var win_height = $(window).height();
+
+	$(".black-bottom").css( {
+    height: (win_height - top_pos) - 100 +'px'
+  });
+}
+
 $(function($) {
   $.fn.fullBg = function(){
     var bgImg = $(this);
@@ -37,13 +46,19 @@ $(function($) {
       });
     } 
     resizeImg();
+    place_bottom();
     
     $(window).resize(function() {
     	resizeImg();
+    	place_bottom();
+    	
+    	
+      
     }); 
   };
 })
 
 $("document").ready(function() {
 	$("#background").animate({ left: "-100", top: "-50" }, 10000, "swing");
+	
 });

@@ -22,6 +22,6 @@
         ul class="dropdown-menu"
           - menu.pages.each do |page|
             - if session[:locale] == 'dk'
-              li =link_to page.title, page
+              li =link_to page.title.upcase, page
             -else
-              li =link_to page.title_uk, page
+              li =link_to page.title_uk.upcase, page
