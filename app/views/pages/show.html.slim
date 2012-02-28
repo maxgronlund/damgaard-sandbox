@@ -23,10 +23,13 @@
           .gallery
             - if @page.gallery_images.size < 1
               = image_tag(@page.backdrop.image_url(:large),{:width => 542, :height => 426}) if @page.backdrop
-            .gallery-thumbs
-              - @page.gallery_images.each do |gallery_image|
-                = link_to image_tag(gallery_image.image_url :small), gallery_image.image_url(:medium), class: 'gallery-thumb'
-            .gallery-preview
+            - elsif @page.gallery_images.size == 1
+              = image_tag(@page.gallery_images.first.image_url(:large),{:width => 542, :height => 426})
+            - else
+              .gallery-thumbs
+                - @page.gallery_images.each do |gallery_image|
+                  = link_to image_tag(gallery_image.image_url :small), gallery_image.image_url(:medium), class: 'gallery-thumb'
+              .gallery-preview
             .clear_both
           .gallery_preload_area
         
