@@ -5,6 +5,9 @@ class Company < ActiveRecord::Base
   
   validates_presence_of :title, :title_uk
   
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
+  
   attr_accessible :image, :image_cache, :google_map,
                   :title, :title_uk, :headline, 
                   :headline_uk, :body, :body_uk, :remove_image, :street, :zip, :city, :country, :phone, :fax, :email, :publish, :backdrop_id, :color_theme

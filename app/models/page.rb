@@ -3,4 +3,8 @@ class Page < ActiveRecord::Base
   has_many    :gallery_images
   belongs_to :backdrop
   belongs_to :menu
+  
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
+  
 end

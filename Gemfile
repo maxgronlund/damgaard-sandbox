@@ -17,6 +17,7 @@ gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'country_select'
+gem "friendly_id", "~> 4.0.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
