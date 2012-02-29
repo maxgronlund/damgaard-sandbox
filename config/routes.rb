@@ -1,6 +1,8 @@
 BootstrapOnRails::Application.routes.draw do
   
 
+  resources :contact_people
+
   resources :menus
 
   resource :locale

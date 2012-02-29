@@ -31,3 +31,5 @@ rails g scaffold menu title:string company:belongs_to
 rails g migration AddTopPageLinkToMenu menus top_page_id:integer
 
 rails g migration AddBoogleMapToCompanu google_map:text
+
+rails g scaffold contact_person title:string name:string tlf:string email:string

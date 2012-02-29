@@ -5,6 +5,7 @@ class AdminController < ApplicationController
       @breadcrumbs = { "Home" => root_path }
       @companies = Company.all
       @users = User.all[1..-1]
+      @contact_people = ContactPerson.all
       @backdrops = Backdrop.all
     else
       redirect_to root_path

@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @contact_person.title
+p
+  strong Name:
+  = @contact_person.name
+p
+  strong Tlf:
+  = @contact_person.tlf
+p
+  strong Email:
+  = @contact_person.email
+
+= link_to 'Edit', edit_contact_person_path(@contact_person)
+'|
+= link_to 'Back', contact_people_path

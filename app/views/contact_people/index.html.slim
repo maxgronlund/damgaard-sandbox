@@ -1,0 +1,25 @@
+h1 Listing contact_people
+
+table
+  tr
+    th Title
+    th Name
+    th Tlf
+    th Email
+    th
+    th
+    th
+
+  - @contact_people.each do |contact_person|
+    tr
+      td = contact_person.title
+      td = contact_person.name
+      td = contact_person.tlf
+      td = contact_person.email
+      td = link_to 'Show', contact_person
+      td = link_to 'Edit', edit_contact_person_path(contact_person)
+      td = link_to 'Destroy', contact_person, :confirm => 'Are you sure?', :method => :delete
+
+br
+
+= link_to 'New Contact person', new_contact_person_path

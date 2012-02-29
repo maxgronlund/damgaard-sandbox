@@ -1,0 +1,44 @@
+h3 Contact persons <small>Shows up on the contact persons page</small>
+              
+= render 'js/table_sorter'
+table class="table" id="sortTableExample"
+  thead
+    tr
+      th title
+      th name
+      th phone
+      th email
+      th manage
+  tbody
+    - @contact_people.each do |contact_person| 
+      tr
+        td = contact_person.title
+        td = contact_person.name
+        td = contact_person.tlf
+        td = contact_person.email
+        td 
+          /=link_to contact_person do
+          /   i class="icon-eye-open"
+          /'&nbsp;
+          =link_to edit_contact_person_path(contact_person) do
+            i class="icon-pencil"
+          '&nbsp;
+          =link_to(contact_person, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+            i class="icon-remove"
+                
+
+- if can?( :create, User ) 
+  br
+  = link_to 'New contact person', new_contact_person_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new contact person", :'data-content'=>"You have to fill in title name email and phone"
+  br
+  script 
+    | $(function () {
+        $("a[rel=popover]")
+          .popover({
+            offset: 10,
+            placement: 'left'
+          })
+          .clickx(function(e) {
+            e.preventDefault()
+          })
+        })
