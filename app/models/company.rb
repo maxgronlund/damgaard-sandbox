@@ -1,12 +1,13 @@
 class Company < ActiveRecord::Base
+  acts_as_list
   has_many :pages
   has_many :menus
   belongs_to :backdrop
   
   validates_presence_of :title, :title_uk
   
-  extend FriendlyId
-  friendly_id :title, :use => :slugged
+  #extend FriendlyId
+  #friendly_id :title, :use => :slugged
   
   attr_accessible :image, :image_cache, :google_map,
                   :title, :title_uk, :headline, 

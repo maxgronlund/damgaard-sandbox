@@ -2,6 +2,8 @@ class Admin::CompaniesController < InheritedResources::Base
   load_and_authorize_resource
   def show
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
+    @company = Company.find(params[:id])
+    @menus = @company.menus.order("position")
     @pages = Page.all
     show!
   end
@@ -30,3 +32,7 @@ class Admin::CompaniesController < InheritedResources::Base
   end
   
 end
+
+
+
+

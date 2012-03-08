@@ -33,9 +33,14 @@ BootstrapOnRails::Application.routes.draw do
     end
   end
 
+  resources :menus do
+    collection { post :sort }
+  end
+    
   resources :companies do
     resources :menus
     resources :pages
+    
     #member do
     #  get 'crop'
     #  put 'crop_update'
