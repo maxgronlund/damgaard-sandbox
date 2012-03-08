@@ -1,3 +1,21 @@
 // Place all the styles related to the menus controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#sortable-menu li{
+  list-style-type:none;
+  height: 28px;
+}
+
+#sortable-page li{
+  list-style-type:none;
+  height: 28px;
+}
+
+/*
+#sortable-menu { 
+  list-style-type: 
+  none; margin: 0; padding: 0; }
+#sortable-menu li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+#sortable-menu li span { position: absolute; margin-left: -1.3em; }
+*/

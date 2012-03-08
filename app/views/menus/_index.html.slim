@@ -1,35 +1,26 @@
-h3 Menus for #{@company.title.capitalize!}
+h3 Menu points for #{@company.title.capitalize!}
+'Drag to order the menu items
+br
+hr
 .row
-  .span6
-  
-  
-    /ul id="sortable"
-    /	li Item 1
-    /	li Item 2
-    /	li class="ui-state-default"
-    /	  span class="ui-icon ui-icon-arrowthick-2-n-s"Item 3
-    /	li class="ui-state-default"
-    /	  span class="ui-icon ui-icon-arrowthick-2-n-s"Item 4
-    /	li class="ui-state-default"
-    /	  span class="ui-icon ui-icon-arrowthick-2-n-s"Item 5
-    /	li class="ui-state-default"
-    /	  span class="ui-icon ui-icon-arrowthick-2-n-s"Item 6
-    /	li class="ui-state-default"
-    /	  span class="ui-icon ui-icon-arrowthick-2-n-s"Item 7
-                                                                                            
-
+  .span8
     ul id="sortable-menu" update-url="#{sort_menus_url} %>"
       - @menus.each do |menu|
+        
         = content_tag_for :li, menu do
-          hr
-          = link_to menu.title.upcase, menu_pages_path(menu)
-          '&nbsp;
-          = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"The menu shows up in the top bar when the company is selected"
-          '&nbsp;
-          = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
-          '&nbsp;
-          = link_to 'order menu items', menu_pages_path(menu)
-          
+          .row
+            .span2
+              i class="icon-resize-vertical"
+              '&nbsp
+              = menu.title.upcase
+            .span2
+              '&nbsp;
+              - if menu.pages.length > 1
+                = link_to 'Order Items', menu_pages_path(menu)
+            .span2
+              = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"The menu shows up in the top bar when the company is selected"
+              '&nbsp;
+              = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
           
 
           
