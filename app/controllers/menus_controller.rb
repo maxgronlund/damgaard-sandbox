@@ -27,7 +27,7 @@ class MenusController < InheritedResources::Base
   end 
   
   def sort
-    params[:menus].each_with_index do |id, index|
+    params[:menu].each_with_index do |id, index|
       Menu.update_all({position: index+1}, {id: id})
     end
     render nothing: true

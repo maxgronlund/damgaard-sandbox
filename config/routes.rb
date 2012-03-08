@@ -39,7 +39,9 @@ BootstrapOnRails::Application.routes.draw do
   end
     
   resources :companies do
-    resources :menus
+    resources :menus do
+      collection { post :sort }
+    end
     resources :pages
     
     #member do

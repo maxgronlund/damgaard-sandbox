@@ -4,7 +4,7 @@ br
 hr
 .row
   .span8
-    ul id="sortable-menu" update-url="#{sort_menus_url} %>"
+    ul id="sortable-menu" data-update-url="#{sort_company_menus_url(@company)}"
       - @menus.each do |menu|
         
         = content_tag_for :li, menu do

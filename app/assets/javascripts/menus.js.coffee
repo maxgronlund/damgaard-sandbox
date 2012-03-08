@@ -7,6 +7,6 @@ jQuery ->
   $('#sortable-menu').sortable(
     axis: 'y'
     update: ->
-      $.post($(this).data('update-url'), $(this).menus.sortable('serialize'))
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
       
   );
