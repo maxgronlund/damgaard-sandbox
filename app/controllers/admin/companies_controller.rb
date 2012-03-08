@@ -31,6 +31,8 @@ class Admin::CompaniesController < InheritedResources::Base
     destroy!{ admin_index_path }
   end
   
+
+  
 end
 
 

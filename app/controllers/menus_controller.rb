@@ -31,6 +31,8 @@ class MenusController < InheritedResources::Base
       Menu.update_all({position: index+1}, {id: id})
     end
     render nothing: true
-  end 
+  end
+  
+
     
 end

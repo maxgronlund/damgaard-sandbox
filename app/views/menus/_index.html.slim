@@ -21,20 +21,18 @@ h3 Menus for #{@company.title.capitalize!}
     ul id="sortable-menu" update-url="#{sort_menus_url} %>"
       - @menus.each do |menu|
         = content_tag_for :li, menu do
-          = link_to menu.title.upcase, menu
-          '&nbsp;
-          = menu.title_uk.upcase
-          
+          hr
+          = link_to menu.title.upcase, menu_pages_path(menu)
           '&nbsp;
           = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"The menu shows up in the top bar when the company is selected"
           '&nbsp;
           = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
           '&nbsp;
+          = link_to 'order menu items', menu_pages_path(menu)
           
-          /= link_to 'Edit', edit_company_menu_path(menu.company, menu)
-          /= link_to 'Destroy', menu, :confirm => 'Are you sure?', :method => :delete
-          /
-          hr
+          
+
+          
           
       
 br

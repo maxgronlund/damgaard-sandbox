@@ -51,4 +51,9 @@ class PagesController < InheritedResources::Base
     destroy! { admin_company_path( @page.company)}
   end
   
+  def index
+    @menu = Menu.find(params[:menu_id])
+    @pages = @menu.pages
+  end
+  
 end

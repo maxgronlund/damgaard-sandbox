@@ -34,6 +34,7 @@ BootstrapOnRails::Application.routes.draw do
   end
 
   resources :menus do
+    resources :pages
     collection { post :sort }
   end
     
