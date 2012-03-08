@@ -22,9 +22,9 @@
         br
         = f.input :menu_id, :collection => @menus, :label => "Show in menu"
         
-        - if @page.company.google_map != ''
-          'Show
-          = f.input :show_map, :collection => [ ['gallery', false], ['google map', true] ], :label => false, :include_blank => false
+        /- if @page.company.google_map != ''
+        = f.input :page_type , :include_blank => false , :collection => Page::PAGETYPES
+
 
 
       .span4

@@ -16,10 +16,8 @@
         .content    
           = markdown(@body)
       .page-gallery
-        - if @page.show_map
-          .google_map
-            = link_to '', '#', :title => @page.company.google_map
-        -else
+        - if @page.page_type == 'gallery'
+          / put gallery in a partial
           .gallery
             - if @page.gallery_images.size < 1
               = image_tag(@page.backdrop.image_url(:large),{:width => 542, :height => 426}) if @page.backdrop
@@ -32,6 +30,17 @@
               .gallery-preview
             .clear_both
           .gallery_preload_area
+          
+        - elsif @page.page_type == 'map'
+          .google_map
+            = link_to '', '#', :title => @page.company.google_map
+            
+        - elsif @page.page_type == 'contacts'
+          'contacts goes here
+          
+        - elsif @page.page_type == 'video'
+          'video goes here
+          
         
   #solid-red style="background-color:#{@page.company.color_theme}"
   .black-bottom

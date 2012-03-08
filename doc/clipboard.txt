@@ -1,15 +1,26 @@
-[class^="icon-"] {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  vertical-align: text-top;
-background-image: url('<%= asset_path "glyphicons-halflings.png" %>');  background-position: 14px 14px;
-  background-repeat: no-repeat;
-  *margin-right: .3em;
-}
-[class^="icon-"]:last-child {
-  *margin-left: 0;
-}
-.icon-white {
-  background-image: url('<%= asset_path "glyphicons-halflings-white.png" %>');
-}
+Spørgsmål om tilbud:
+Claus Damgaard, 8738 8703
+cd@jbd.dk
+
+Supply chain manager:
+Kenneth Bjerg Jensen
+
+Produktionskontakt og programfiler:
+Helle Juul, 8738 8724
+hj@jbd.dk
+
+Konstruktion:
+Robert Dalby
+rd@jbd.dk
+
+Kvalitetsafdeling:
+Knud Bonde Pedersen
+kbp@jbd.dk
+
+Teknisk support:
+Bo Nielsen, 8738 8706
+bn@jbd.dk
+
+Bogholderi:
+Hanne Damgaard, 8738 8712
+hd@jbd.dk
