@@ -18,7 +18,7 @@ h3 Menus for #{@company.title.capitalize!}
     /	  span class="ui-icon ui-icon-arrowthick-2-n-s"Item 7
                                                                                             
 
-    ul id="sortable" update-url="#{sort_menus_url} %>"
+    ul id="sortable-menu" update-url="#{sort_menus_url} %>"
       - @menus.each do |menu|
         = content_tag_for :li, menu do
           = link_to menu.title.upcase, menu
