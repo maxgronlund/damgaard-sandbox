@@ -52,9 +52,6 @@ $(function($) {
     $(window).resize(function() {
     	resizeImg();
     	place_bottom();
-    	
-    	
-      
     }); 
   };
 })
@@ -78,11 +75,7 @@ $("document").ready(function() {
     function load_google_map(){
       $('.google_map').delay(2000).html(gmap);
       clearInterval(intId);  
-    }
-        
-        
-    
-    //$('.google_map').delay(2000).html(gmap);
+    }     
 
   });
 });
