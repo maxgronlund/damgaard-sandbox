@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120308091501) do
+ActiveRecord::Schema.define(:version => 20120308141311) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(:version => 20120308091501) do
     t.integer  "menu_id"
     t.boolean  "show_map"
     t.string   "slug"
+    t.integer  "position"
   end
 
   add_index "pages", ["company_id"], :name => "index_pages_on_company_id"
