@@ -2,9 +2,7 @@ BootstrapOnRails::Application.routes.draw do
   
 
   resources :contact_people
-
   resources :menus
-
   resource :locale
   
   resources :backdrops do
@@ -44,6 +42,9 @@ BootstrapOnRails::Application.routes.draw do
   end
     
   resources :companies do
+    resources :contact_people do
+      collection { post :sort }
+    end
     resources :menus do
       collection { post :sort }
     end
@@ -84,6 +85,7 @@ BootstrapOnRails::Application.routes.draw do
   resources :password_resets
   
   get "no_access/index"
+  get "vcard/view"
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

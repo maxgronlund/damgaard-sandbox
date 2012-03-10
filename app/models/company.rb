@@ -2,6 +2,7 @@ class Company < ActiveRecord::Base
   acts_as_list
   has_many :pages
   has_many :menus
+  has_many :contact_people
   belongs_to :backdrop
   
   validates_presence_of :title, :title_uk

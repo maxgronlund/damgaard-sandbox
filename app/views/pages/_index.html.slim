@@ -17,10 +17,10 @@ h3 Pages
               i = link_to '', edit_company_page_path(page.company, page), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit #{page.title}", :'data-content'=>"Edit text. Select backdrop and assign page to menu"
               '&nbsp;
               
-              i = link_to '', page_gallery_images_path(page), :class => "icon-film", :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload immages to the page gallery "
+              i = link_to '', page_gallery_images_path(page), :class => "icon-film", :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload images to the page gallery "
               '&nbsp; 
               
-              i = link_to '', page, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
+              i = link_to '', page, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-trash"
               '&nbsp;
 br
 
@@ -28,16 +28,5 @@ br
 br
 
 
-script 
-  | $(function () {
-      $("a[rel=popover]")
-        .popover({
-          offset: 10,
-          placement: 'right'
-        })
-        .clickx(function(e) {
-          e.preventDefault()
-        })
-      })
 
 

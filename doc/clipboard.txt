@@ -1,3 +1,5 @@
+http://www.8bitscraps.co.uk/blog/creating-vcards-with-ruby-on-rails/
+
 Spørgsmål om tilbud:
 Claus Damgaard, 8738 8703
 cd@jbd.dk

@@ -38,3 +38,5 @@ rails g migration AddPositionToMenus position:integer
 
 rails g migration AddPageTypeToPage page_type:string
 
+rails g migration AddCompanyIdToContactPeople
+

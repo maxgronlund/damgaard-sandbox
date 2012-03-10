@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120310084359) do
+ActiveRecord::Schema.define(:version => 20120310183617) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -53,7 +53,11 @@ ActiveRecord::Schema.define(:version => 20120310084359) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "position"
+    t.integer  "company_id"
   end
+
+  add_index "contact_people", ["company_id"], :name => "index_contact_people_on_company_id"
 
   create_table "gallery_images", :force => true do |t|
     t.string   "title"

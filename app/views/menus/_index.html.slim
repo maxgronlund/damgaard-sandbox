@@ -1,5 +1,4 @@
-h3 Menu points for #{@company.title.capitalize!}
-'Order the menubar by draging items up and down in this list
+h3 Menu points for #{@company.title.capitalize!} <small> Order the menubar by draging items up and down in this list</small>
 br
 hr
 .row
@@ -14,7 +13,7 @@ hr
           '&nbsp;
           = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"Click her to edit the menus name and translations"
           '&nbsp;
-          = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
+          = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-trash"
           '&nbsp
           = link_to menu.title.upcase, menu_pages_path(menu), :rel => "popover",  :'data-original-title'=>"Order Menu Items", :'data-content'=>"Click here to order the menus items"
         
@@ -26,14 +25,4 @@ br
 
 = link_to 'New Menu', new_company_menu_path(@company), :class => 'btn btn-primary'
 
-script 
-  | $(function () {
-      $("a[rel=popover]")
-        .popover({
-          offset: 10,
-          placement: 'right'
-        })
-        .clickx(function(e) {
-          e.preventDefault()
-        })
-      })
+

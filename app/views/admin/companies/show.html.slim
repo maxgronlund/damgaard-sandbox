@@ -6,7 +6,7 @@
     = render 'shared/breadcrumbs', :breadcrumbs => @breadcrumbs unless @breadcrumbs.nil?
     .well
       page-header
-        h1#{@company.title} <small>Company info</small>
+        h1#{@company.title} <small>Company info #{@company.id}</small>
       .row
         .span5
           .row
@@ -61,9 +61,22 @@
       '&nbsp;
       =link_to 'Show', company_path(@company), :class => 'btn'
     .well
+      ==render 'contact_people/index'
+    .well
       ==render 'menus/index'
     .well
       == render 'pages/index'
     
     
           
+script 
+  | $(function () {
+      $("a[rel=popover]")
+        .popover({
+          offset: 10,
+          placement: 'right'
+        })
+        .clickx(function(e) {
+          e.preventDefault()
+        })
+      })
