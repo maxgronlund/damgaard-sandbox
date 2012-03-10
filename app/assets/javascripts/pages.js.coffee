@@ -5,6 +5,6 @@ jQuery ->
   $('#sortable-page').sortable(
     axis: 'y'
     update: ->
-      $.post($(this).data('update-url'), $(this).pages.sortable('serialize'))
+      $.post($(this).data('update-url'), $(this).sortable('serialize'))
       
   );

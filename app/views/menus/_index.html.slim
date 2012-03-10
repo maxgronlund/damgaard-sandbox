@@ -1,28 +1,24 @@
 h3 Menu points for #{@company.title.capitalize!}
-'Drag to order the menu items
+'Order the menubar by draging items up and down in this list
 br
 hr
 .row
-  .span8
-    ul id="sortable-menu" data-update-url="#{sort_company_menus_url(@company)}"
-      - @menus.each do |menu|
-        
-        = content_tag_for :li, menu do
-          .row
-            .span3
-              i class="icon-resize-vertical"
-              '&nbsp
-              = menu.title.upcase
-            .span2
-              '&nbsp;
-              - if menu.pages.length > 1
-                = link_to 'Order Items', menu_pages_path(menu)
-            .span1
-              = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"The menu shows up in the top bar when the company is selected"
-              '&nbsp;
-              = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
-          
 
+  ul id="sortable-menu" data-update-url="#{sort_company_menus_url(@company)}"
+    - @menus.each do |menu|
+      
+      = content_tag_for :li, menu do
+
+          i class="icon-resize-vertical"
+          /= link_to '', '#', :class => "icon-resize-vertical", :rel => "popover",  :'data-original-title'=>"Drag to order", :'data-content'=>"Order the menubar by draging items up and down in this list"
+          '&nbsp;
+          = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"Click her to edit the menus name and translations"
+          '&nbsp;
+          = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-remove"
+          '&nbsp
+          = link_to menu.title.upcase, menu_pages_path(menu), :rel => "popover",  :'data-original-title'=>"Order Menu Items", :'data-content'=>"Click here to order the menus items"
+        
+  
           
           
       

@@ -25,11 +25,6 @@ class PagesController < InheritedResources::Base
     edit!
   end
   
-  #def show
-  #  @page = Page.find(params[:id])
-  #  render :layout => 'frontend'
-  #end
-  
   def show
     
     @page = Page.find(params[:id])
@@ -53,7 +48,14 @@ class PagesController < InheritedResources::Base
   
   def index
     @menu = Menu.find(params[:menu_id])
-    @pages = @menu.pages
+    @pages = @menu.pages.order("position")
+  end
+  # fix this
+  def sort
+    params[:page].each_with_index do |id, index|
+      Page.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
   end
   
 end

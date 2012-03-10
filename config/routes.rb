@@ -32,10 +32,15 @@ BootstrapOnRails::Application.routes.draw do
       #end
     end
   end
-
-  resources :menus do
-    resources :pages
+  
+  resources :pages do
     collection { post :sort }
+  end
+  
+  resources :menus do
+    resources :pages do
+      collection { post :sort }
+    end
   end
     
   resources :companies do

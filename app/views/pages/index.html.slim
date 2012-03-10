@@ -7,9 +7,9 @@
     .well
       page-header
         /h1#{@company.title} <small>Company info</small>
-        h1 order menu items
+        h1 Order menu items
 
-        ul id="sortable-page" update-url="#{sort_menus_url} %>"
+        ul id="sortable-page" data-update-url="#{sort_pages_url}"
           - @pages.each do |page|
             = content_tag_for :li, page do
               hr

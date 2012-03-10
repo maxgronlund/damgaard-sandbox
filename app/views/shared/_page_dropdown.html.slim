@@ -1,5 +1,5 @@
 / put language in helper
-- company.menus.each_with_index do |menu, index|
+- company.menus.order('position').each_with_index do |menu, index|
   ul class="nav pills"
     li class="dropdown" id="#{'menu'+(index+1).to_s}"
       - if menu.pages.length == 0

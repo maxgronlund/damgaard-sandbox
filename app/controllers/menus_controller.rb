@@ -25,7 +25,7 @@ class MenusController < InheritedResources::Base
   def destroy
     destroy! { admin_company_path( @menu.company)}
   end 
-  
+  # dont fix this
   def sort
     params[:menu].each_with_index do |id, index|
       Menu.update_all({position: index+1}, {id: id})

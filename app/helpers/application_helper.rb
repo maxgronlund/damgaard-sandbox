@@ -7,10 +7,6 @@ module ApplicationHelper
     link_to title, {:sort => column, :direction => direction}, {:class => css_class}   
   end
   
-#  def markdown(text, *renderer)  
-#      rndr = Redcarpet::Render::HTML.new(:no_links => true, :hard_wrap => true)
-#      
-#    end
  
   def markdown(text, *renderer)      
     redcarpet = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(:hard_wrap => true, 
