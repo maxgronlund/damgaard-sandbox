@@ -20,7 +20,7 @@
           b class="caret"
           
         ul class="dropdown-menu"
-          - menu.pages.each do |page|
+          - menu.pages.order('position').each do |page|
             - if session[:locale] == 'dk'
               li =link_to page.title.upcase, page
             -else
