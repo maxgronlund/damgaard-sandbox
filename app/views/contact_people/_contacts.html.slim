@@ -16,10 +16,10 @@
       = contact_person.tlf
       br
       'E:&nbsp;
-      = contact_person.email
+      = mail_to contact_person.email, contact_person.email, :encode => "javascript"
       br
       'VCard:&nbsp;
-      = link_to 'Download', vcard_view_path(contact_person.id)
+      = link_to 'Download', vcard_path(contact_person)
 
           
                 

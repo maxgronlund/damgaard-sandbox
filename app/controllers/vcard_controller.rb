@@ -4,28 +4,29 @@ class VcardController < ApplicationController
   
 
   
-  def view
-  	#@user = Employee.find_by_id(params[:id])
+  def show
+  	@contact = ContactPerson.find(params[:id])
 
   	card = Vpim::Vcard::Maker.make2 do |maker|
 
   		maker.add_name do |name|
       			name.prefix = ''
-      			name.given = 'John'
-      			name.family = 'Doe'
+      			name.given = @contact.name
+#      			name.family = 'Doe'
   		end
 
   		maker.add_addr do |addr|
       			addr.preferred = true
-      			addr.location = 'work'
-      			addr.street = '243 Felixstowe Road'
-      			addr.locality = 'Ipswich'
-      			addr.country = 'United Kingdom'
+      			addr.location = 'Damgard'
+      			addr.street = 'Birkegaardsvej 26'
+      			addr.locality = '8361 Hasselager'
+      			addr.country = 'Danmark'
   		end
 
-  		maker.add_tel('27 26 85 03')
-
-  		maker.add_email('max@synthmax.dk') { |e| e.location = 'work' }
+  		maker.add_tel(@contact.tlf) 
+  		maker.add_email(@contact.email) { |e| e.location = 'work' }
+  		maker.add_tel('http:damgaard-sandbox.com') 
+  		maker.add_note(@contact.title)
 
   	end
 

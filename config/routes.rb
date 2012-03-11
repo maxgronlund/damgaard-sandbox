@@ -89,7 +89,8 @@ BootstrapOnRails::Application.routes.draw do
   resources :password_resets
   
   get "no_access/index"
-  get "vcard/view"
+  resources :vcard
+
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
