@@ -19,8 +19,7 @@ gem 'mini_magick'
 gem 'country_select'
 gem "friendly_id", "~> 4.0.0"
 gem 'acts_as_list'
-gem 'vpim', "12.1.12", :git => 'git://github.com/sam-github/vpim.git'
-#gem "vpim-rails"
+gem 'vpim'
 
 # Gems used only for assets and not required
 # in production environments by default.

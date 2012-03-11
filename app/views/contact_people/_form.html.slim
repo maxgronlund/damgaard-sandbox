@@ -11,7 +11,7 @@
 /    = f.button :submit
 
 
-= simple_form_for@contact_person, :html => { :class => 'form-vertical' } , :validate => true do |f| 
+= simple_form_for @contact_person, :html => { :class => 'form-vertical' } , :validate => true do |f| 
   -if f.error_notification
     .alert.alert-error.fade.in
       = link_to 'x', '#', :class=>"close", :'data-dismiss'=> "alert"
@@ -19,12 +19,14 @@
   .well
     fieldset
       legend Contact info
+      = f.input :image, :input_html => {:class =>"user_name"}
+      = f.hidden_field :image_cache
       = f.input :title
       /, :hint => "add your article title here"
       = f.input :name
       = f.input :tlf
       = f.input :email
-
+      = f.hidden_field :company_id
 
       
 

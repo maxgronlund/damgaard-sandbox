@@ -44,6 +44,10 @@ BootstrapOnRails::Application.routes.draw do
   resources :companies do
     resources :contact_people do
       collection { post :sort }
+      member do
+        get 'crop'
+        put 'crop_update'
+      end
     end
     resources :menus do
       collection { post :sort }

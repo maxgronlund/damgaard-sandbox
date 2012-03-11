@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120310183617) do
+ActiveRecord::Schema.define(:version => 20120311081705) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -51,10 +51,12 @@ ActiveRecord::Schema.define(:version => 20120310183617) do
     t.string   "name"
     t.string   "tlf"
     t.string   "email"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
     t.integer  "position"
     t.integer  "company_id"
+    t.string   "image"
+    t.text     "crop_params"
   end
 
   add_index "contact_people", ["company_id"], :name => "index_contact_people_on_company_id"

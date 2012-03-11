@@ -4,12 +4,6 @@ GIT
   specs:
     nested_form (0.2.0)
 
-GIT
-  remote: git://github.com/sam-github/vpim.git
-  revision: 6753a367cda64e53eab745414cedc130d2f149c8
-  specs:
-    vpim (12.1.12)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -159,6 +153,7 @@ GEM
     uglifier (1.2.3)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
+    vpim (0.695)
 
 PLATFORMS
   ruby
@@ -185,4 +180,4 @@ DEPENDENCIES
   slim-rails
   therubyracer
   uglifier (>= 1.0.3)
-  vpim (= 12.1.12)!
+  vpim

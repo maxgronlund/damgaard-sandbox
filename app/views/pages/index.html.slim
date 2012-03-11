@@ -7,7 +7,7 @@
     .well
       page-header
         /h1#{@company.title} <small>Company info</small>
-        h1 Order menu items
+        h1 Order menu items <small> Arrange the menu  "#{@menu.title}" by dragging items below up and down</small>
 
         ul id="sortable-page" data-update-url="#{sort_pages_url}"
           - @pages.each do |page|

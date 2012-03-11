@@ -1,26 +1,23 @@
-h3 Menu points for #{@company.title.capitalize!} <small> Order the menubar by draging items up and down in this list</small>
-br
+h3 Menu points for #{@company.title.capitalize!} <small> Order the menubar by dragging the items below up and down</small>
+
 hr
-.row
+ul id="sortable-menu" data-update-url="#{sort_company_menus_url(@company)}"
+  - @menus.order('position').each do |menu|
+    
+    = content_tag_for :li, menu do
 
-  ul id="sortable-menu" data-update-url="#{sort_company_menus_url(@company)}"
-    - @menus.each do |menu|
+        i class="icon-resize-vertical"
+        '&nbsp;
+        = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"Click her to edit the menus name and translations"
+        '&nbsp;
+        = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-trash"
+        '&nbsp
+        = link_to menu.title.upcase, menu_pages_path(menu), :rel => "popover",  :'data-original-title'=>"Order Menu Items", :'data-content'=>"Click here to order the menus items"
       
-      = content_tag_for :li, menu do
 
-          i class="icon-resize-vertical"
-          /= link_to '', '#', :class => "icon-resize-vertical", :rel => "popover",  :'data-original-title'=>"Drag to order", :'data-content'=>"Order the menubar by draging items up and down in this list"
-          '&nbsp;
-          = link_to '', edit_company_menu_path(menu.company, menu), :class => "icon-pencil", :rel => "popover",  :'data-original-title'=>"Edit menu", :'data-content'=>"Click her to edit the menus name and translations"
-          '&nbsp;
-          = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-trash"
-          '&nbsp
-          = link_to menu.title.upcase, menu_pages_path(menu), :rel => "popover",  :'data-original-title'=>"Order Menu Items", :'data-content'=>"Click here to order the menus items"
         
-  
-          
-          
-      
+        
+    
 br
 
 = link_to 'New Menu', new_company_menu_path(@company), :class => 'btn btn-primary'

@@ -15,30 +15,22 @@
           h1#{@title.upcase}
         .content    
           = markdown(@body)
-      .page-gallery
-        - if @page.page_type == 'gallery'
-          / put gallery in a partial
-          .gallery
-            - if @page.gallery_images.size < 1
-              = image_tag(@page.backdrop.image_url(:large),{:width => 542, :height => 426}) if @page.backdrop
-            - elsif @page.gallery_images.size == 1
-              = image_tag(@page.gallery_images.first.image_url(:large),{:width => 542, :height => 426})
-            - else
-              .gallery-thumbs
-                - @page.gallery_images.each do |gallery_image|
-                  = link_to image_tag(gallery_image.image_url :small), gallery_image.image_url(:medium), class: 'gallery-thumb'
-              .gallery-preview
-            .clear_both
-          .gallery_preload_area
+      
+      - if @page.page_type == 'gallery'
+        .page-gallery
+          == render 'gallery'
           
-        - elsif @page.page_type == 'map'
+      - elsif @page.page_type == 'map'
+        .page-gallery
           .google_map
             = link_to '', '#', :title => @page.company.google_map
-            
-        - elsif @page.page_type == 'contacts'
-          'contacts goes here
           
-        - elsif @page.page_type == 'video'
+      - elsif @page.page_type == 'contacts'
+        .contacts
+          = render 'contact_people/contacts', :contact_people => @page.company.contact_people
+        
+      - elsif @page.page_type == 'video'
+        .page-gallery
           'video goes here
           
         

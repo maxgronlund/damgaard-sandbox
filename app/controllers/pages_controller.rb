@@ -13,6 +13,7 @@ class PagesController < InheritedResources::Base
     new!
   end
   
+  
   def edit
     @page = Page.find(params[:id])
     @menus = @page.company.menus
@@ -49,8 +50,9 @@ class PagesController < InheritedResources::Base
   def index
     @menu = Menu.find(params[:menu_id])
     @pages = @menu.pages.order("position")
+    @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, @menu.company.title.capitalize => admin_company_path(@menu.company) }
   end
-  # fix this
+
   def sort
     params[:page].each_with_index do |id, index|
       Page.update_all({position: index+1}, {id: id})

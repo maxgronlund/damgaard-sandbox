@@ -14,6 +14,8 @@ class MenusController < InheritedResources::Base
     edit!
   end
   
+
+  
   def update
     update! { admin_company_path( @menu.company)}
   end

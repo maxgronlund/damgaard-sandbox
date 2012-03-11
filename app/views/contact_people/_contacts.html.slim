@@ -1,0 +1,26 @@
+
+              
+
+- contact_people.order('position').each do |contact_person| 
+  .contact_person
+
+    .avatar
+      = image_tag(contact_person.image_url :thumb)
+    .title
+      b =contact_person.name
+      br
+      = contact_person.title
+      br
+    .info
+      'P:&nbsp;
+      = contact_person.tlf
+      br
+      'E:&nbsp;
+      = contact_person.email
+      br
+      'VCard:&nbsp;
+      = link_to 'Download', vcard_view_path(contact_person.id)
+
+          
+                
+
