@@ -1,7 +1,14 @@
 BootstrapOnRails::Application.routes.draw do
   
 
-  resources :contact_people
+
+  resources :contact_people do
+    member do
+      get 'crop'
+      put 'crop_update'
+    end
+  end
+  
   resources :menus
   resource :locale
   

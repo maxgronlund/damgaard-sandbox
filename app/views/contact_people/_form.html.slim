@@ -1,16 +1,3 @@
-/= simple_form_for(@contact_person) do |f|
-/  = f.error_notification
-/
-/  .inputs
-/  |     = f.input :title
-/  |     = f.input :name
-/  |     = f.input :tlf
-/  |     = f.input :email
-/  | 
-/  .actions
-/    = f.button :submit
-
-
 = simple_form_for @contact_person, :html => { :class => 'form-vertical' } , :validate => true do |f| 
   -if f.error_notification
     .alert.alert-error.fade.in
@@ -21,6 +8,14 @@
       legend Contact info
       = f.input :image, :input_html => {:class =>"user_name"}
       = f.hidden_field :image_cache
+      
+      - if @contact_person.image.present?
+        .checkbox
+          = f.check_box :remove_image
+          '&nbsp;Remove image
+        br
+        
+        
       = f.input :title
       /, :hint => "add your article title here"
       = f.input :name

@@ -40,7 +40,7 @@ class ContactPeopleController < InheritedResources::Base
   end
   
   def crop
-    @contact_person             = ContactPerson.find(params[:id])
+    @contact_person   = ContactPerson.find(params[:id])
     @crop_version = (params[:version] || :large).to_sym
     @contact_person.get_crop_version! @crop_version
     @version_geometry_width, @version_geometry_height = AvatarUploader.version_dimensions[@crop_version]
