@@ -10,23 +10,22 @@
     ul id="sortable-gallery"  data-update-url="#{sort_page_gallery_images_url(@page)}"
       - @page.gallery_images.order('position').each do |gallery_image|
         = content_tag_for :li, gallery_image do
-          .icon-resize
-            i class="icon-resize-vertical"
-          '&nbsp;
-          = image_tag(gallery_image.image_url(:medium) ,{:height => 80})
-          '&nbsp;
-          = image_tag(gallery_image.image_url :small)
-              
-              
-          .galery-edit-box    
-            = link_to 'Edit thumb', crop_gallery_image_path(gallery_image, :version => :medium), :class =>'btn'  if gallery_image.image.present?
-            '&nbsp;
-            = link_to 'Edit image', crop_gallery_image_path(gallery_image, :version => :small), :class =>'btn'  if gallery_image.image.present?
-            
-             
-            = link_to 'Change image', edit_gallery_image_path(gallery_image), :class => 'btn'
-            '&nbsp;
-            = link_to 'Delete', gallery_image, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+          .row
+            .span9
+              .icon-resize
+                i class="icon-resize-vertical"
+              '&nbsp;
+              = image_tag(gallery_image.image_url(:medium) ,{:height => 80})
+              '&nbsp;
+              = image_tag(gallery_image.image_url :small)
+            .span3   
+              = link_to 'Edit thumb', crop_gallery_image_path(gallery_image, :version => :medium), :class =>'btn btn-mini'  if gallery_image.image.present?
+              '&nbsp;
+              = link_to 'Change image', edit_gallery_image_path(gallery_image), :class => 'btn btn-mini'
+              hr
+              = link_to 'Edit image', crop_gallery_image_path(gallery_image, :version => :small), :class =>'btn btn-mini'  if gallery_image.image.present?
+              '&nbsp;
+              = link_to 'Delete', gallery_image, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger btn-mini'
        
 
     .form-actions

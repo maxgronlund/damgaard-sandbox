@@ -30,17 +30,28 @@
 #sortable-gallery li {
   list-style-type: none;
   height: 90px;
+  width:940px;
+  margin-left:-26px;
+  background-color:#f3f3f3;
+  margin-top:10px;
+  padding-top:10px;
+  border: 1px solid #DDD;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: inset 0 1px 0 white;
+  -moz-box-shadow: inset 0 1px 0 white;
+  box-shadow: inset 0 1px 0 white;
 }
 
 .icon-resize{
-  height: 90px;
-  vertical-align:middle;
+  margin-top:-40px;
 }
 
 .galery-edit-box{
   height: 18px;
   margin-top:24px;
-  margin-right:100px;
+  margin-right:10px;
   float:right;
 }
 
