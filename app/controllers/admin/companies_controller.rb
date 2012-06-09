@@ -5,6 +5,7 @@ class Admin::CompaniesController < InheritedResources::Base
     @company = Company.find(params[:id])
     @menus = @company.menus.order("position")
     @pages = Page.all
+    session[:go_to_after_edit] = admin_company_path(@company)
     show!
   end
 
@@ -21,6 +22,11 @@ class Admin::CompaniesController < InheritedResources::Base
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
     new! { admin_index_path }
+  end
+  
+  def update
+    go_to = session[:go_to_after_edit] || admin_company_path(@company)
+    update!{ go_to }
   end
   
   def create

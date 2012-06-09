@@ -5,7 +5,8 @@ class GalleryImagesController < InheritedResources::Base
     @page = Page.find(params[:page_id])
     @breadcrumbs = { "Home" => root_path, 
                       'Admin' => admin_index_path, 
-                      @page.company.title.capitalize => admin_company_path(@page.company) }
+                      @page.company.title.capitalize => admin_company_path(@page.company),
+                      @page.title => company_menu_pages_path(@page.menu.company, @page.menu) }
     index!
   end
   def show
@@ -72,6 +73,13 @@ class GalleryImagesController < InheritedResources::Base
   
   def destroy
     destroy! { admin_index_path}
+  end
+  
+  def sort
+    params[:gallery_image].each_with_index do |id, index|
+      GalleryImage.update_all({position: index+1}, {id: id})
+    end
+    render nothing: true
   end
 
 end

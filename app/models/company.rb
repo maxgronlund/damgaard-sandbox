@@ -1,7 +1,7 @@
 class Company < ActiveRecord::Base
   acts_as_list
-  has_many :pages
-  has_many :menus
+  has_many :pages, :dependent => :destroy
+  has_many :menus, :dependent => :destroy
   has_many :contact_people
   belongs_to :backdrop
   

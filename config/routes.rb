@@ -31,10 +31,11 @@ BootstrapOnRails::Application.routes.draw do
   namespace :admin do
     resources :companies do
       resources :pages
-      #member do
-      #  get 'crop'
-      #  put 'crop_update'
-      #end
+      resources :menus do
+        resources :pages do
+          collection { post :sort }
+        end
+      end
     end
   end
   
@@ -57,6 +58,7 @@ BootstrapOnRails::Application.routes.draw do
       end
     end
     resources :menus do
+      resources :pages
       collection { post :sort }
     end
     resources :pages
@@ -68,7 +70,9 @@ BootstrapOnRails::Application.routes.draw do
   end
   
   resources :pages do
-    resources :gallery_images
+    resources :gallery_images do
+      collection { post :sort }
+    end
     member do
       get 'crop'
       put 'crop_update'

@@ -1,7 +1,3 @@
-
-
-
-
 = render 'shared/navigation_menu'
 .top-gap
 .container
@@ -10,38 +6,31 @@
     = render 'shared/breadcrumbs', :breadcrumbs => @breadcrumbs unless @breadcrumbs.nil?
     .page-header
       h1 Gallery <small>!Reloade page after you have edited an image</small>
-      
-      
 
-
-    table class="table" 
-      thead
-        tr
-          th big image
-          th thumb
-          
-          th edit images
-          th Manage
-      tbody
-        - @gallery_images.each do |gallery_image|
-          tr
-            td
-              .gallery-admin-thumb
-                = image_tag(gallery_image.image_url(:medium) ,{:height => 80})
-            td = image_tag(gallery_image.image_url :small)
+    ul id="sortable-gallery"  data-update-url="#{sort_page_gallery_images_url(@page)}"
+      - @page.gallery_images.order('position').each do |gallery_image|
+        = content_tag_for :li, gallery_image do
+          .icon-resize
+            i class="icon-resize-vertical"
+          '&nbsp;
+          = image_tag(gallery_image.image_url(:medium) ,{:height => 80})
+          '&nbsp;
+          = image_tag(gallery_image.image_url :small)
               
-            /td = gallery_image.title
-            td 
-              = link_to 'Edit image', crop_gallery_image_path(gallery_image, :version => :medium), :class =>'btn'  if gallery_image.image.present?
-              '&nbsp;
-              = link_to 'Edit thumb', crop_gallery_image_path(gallery_image, :version => :small), :class =>'btn'  if gallery_image.image.present?
               
-            td 
-              = link_to 'Change image', edit_gallery_image_path(gallery_image), :class => 'btn'
-              '&nbsp;
-              = link_to 'Delete', gallery_image, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
+          .galery-edit-box    
+            = link_to 'Edit thumb', crop_gallery_image_path(gallery_image, :version => :medium), :class =>'btn'  if gallery_image.image.present?
+            '&nbsp;
+            = link_to 'Edit image', crop_gallery_image_path(gallery_image, :version => :small), :class =>'btn'  if gallery_image.image.present?
+            
+             
+            = link_to 'Change image', edit_gallery_image_path(gallery_image), :class => 'btn'
+            '&nbsp;
+            = link_to 'Delete', gallery_image, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger'
        
 
-
-    -if @page.gallery_images.size < 5
-      = link_to 'New Gallery image', new_page_gallery_image_path(@page), class: 'btn btn-primary'
+    .form-actions
+      = link_to 'Back to pages', company_menu_pages_path(@page.menu.company, @page.menu), class: 'btn btn-large'
+      -if @page.gallery_images.size < 5
+        '&nbsp;
+        = link_to 'New Gallery image', new_page_gallery_image_path(@page), class: 'btn btn-primary btn-large'

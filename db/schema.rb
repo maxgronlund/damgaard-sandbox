@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311081705) do
+ActiveRecord::Schema.define(:version => 20120609105330) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20120311081705) do
     t.integer  "page_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "position"
   end
 
   add_index "gallery_images", ["page_id"], :name => "index_gallery_images_on_page_id"

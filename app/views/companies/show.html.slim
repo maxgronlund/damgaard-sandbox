@@ -13,15 +13,18 @@
             = @headline.upcase
         .content    
           = markdown(@body)
+          -if can_edit?
+            =link_to 'edit', edit_admin_company_path(@company)
       #right-box
         .headline
           h1
             = @title.upcase
         .content
           == render 'index'
+          
     
   #solid-red style="background-color:#{@company.color_theme}"
-  .black-bottom
+  /.black-bottom
   .backdrop_preload_area
   
 = render 'js/animated_back'

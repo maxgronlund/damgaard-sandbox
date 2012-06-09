@@ -18,6 +18,7 @@ $(function($) {
     bgImg.addClass('fullBg');
     
     function resizeImg() {
+      /*alert('rezize');*/
       imgwidth = bgImg.width();							// 1
       imgheight = bgImg.height();
       
@@ -41,17 +42,19 @@ $(function($) {
         sizeY =  winheight;	
       }
       
+      sizeX *=
+      
       bgImg.css({
-        width: 100 + sizeX+'px',
-        height: 50 + sizeY+'px'
+        width:  sizeX+'px',
+        height: sizeY+'px'
       });
     } 
     resizeImg();
-    place_bottom();
+    /*place_bottom();*/
     
     $(window).resize(function() {
     	resizeImg();
-    	place_bottom();
+    	/*place_bottom();*/
     }); 
   };
 })
@@ -66,7 +69,7 @@ $("document").ready(function() {
   $('.backdrop_preload_area img').imgpreload(function(){
 
     $("#background").fadeIn("slow");
-    $("#background").animate({ left: "-100", top: "-50" }, 10000, "swing");
+    /*$("#background").animate({ left: "-100", top: "-50" }, 10000, "swing");*/
     
     var gmap = $('.google_map a').attr('title');
     

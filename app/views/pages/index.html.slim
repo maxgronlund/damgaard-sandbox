@@ -7,15 +7,31 @@
     .well
       page-header
         /h1#{@company.title} <small>Company info</small>
-        h1 Order menu items <small> Arrange the menu  "#{@menu.title}" by dragging items below up and down</small>
+        h1 Manage pages <small> Arrange pages under the menu  "#{@menu.title}" by dragging pages below up and down</small>
 
-        ul id="sortable-page" data-update-url="#{sort_pages_url}"
-          - @pages.each do |page|
-            = content_tag_for :li, page do
-              hr
-              i class="icon-resize-vertical"
-              '&nbsp;
-              = page.title 
+    ul id="sortable-page2" data-update-url="#{sort_pages_url}"
+      - @pages.each do |page|
+        = content_tag_for :li, page do
+          == render 'show', :page => page
+          /hr
+          /i class="icon-resize-vertical"
+          /'&nbsp;
+          /= page.title 
+    .form-actions
+      = link_to 'Back to company', admin_company_path(@company), class: 'btn btn-large'
+      '&nbsp;
+      = link_to 'New page', new_menu_page_path(@menu),:class => 'btn btn-primary btn-large'
+script 
+  | $(function () {
+      $("a[rel=popover]")
+        .popover({
+          offset: 10,
+          placement: 'right'
+        })
+        .clickx(function(e) {
+          e.preventDefault()
+        })
+      })
 
 
 

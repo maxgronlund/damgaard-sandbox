@@ -12,10 +12,39 @@
   height: 28px;
 }
 
+#sortable-page2 li{
+  list-style-type:none;
+  min-height: 128px;
+  margin:0px;
+}
+
+#sortable-page2{
+  margin:0px;
+}
+
 #sortable-contact li{
   list-style-type:none;
   height: 28px;
 }
+
+#sortable-gallery li {
+  list-style-type: none;
+  height: 90px;
+}
+
+.icon-resize{
+  height: 90px;
+  vertical-align:middle;
+}
+
+.galery-edit-box{
+  height: 18px;
+  margin-top:24px;
+  margin-right:100px;
+  float:right;
+}
+
+
 
 /*
 #sortable-menu { 

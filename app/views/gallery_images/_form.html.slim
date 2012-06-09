@@ -7,5 +7,7 @@
     = f.hidden_field :image_cache
     = f.hidden_field :page_id
   .form-actions
-    = f.button :submit, :class =>"btn btn-primary"
+    = link_to 'Back to gallery', :back, :class =>"btn btn-large"
+    '&nbsp;
+    = f.submit 'Upload image', :class =>"btn btn-primary btn-large"
 

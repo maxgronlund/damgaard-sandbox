@@ -1,0 +1,35 @@
+hr
+  .row
+    .span1
+      i class="icon-resize-vertical"
+      
+    .span2
+      .thumbnail
+        = image_tag(page.backdrop.image_url :small)
+      
+    .span9
+      h3 = page.title
+      br
+      = link_to page, :rel => "popover",  :'data-original-title'=>"Show page", :'data-content'=>"View the page as it looks for visitors", do
+        .btn.btn-mini
+          i class="icon-eye-open"
+          '&nbsp;&nbsp;Show &nbsp;&nbsp;
+    
+      '&nbsp
+      = link_to edit_menu_page_path(page.menu, page), :rel => "popover",  :'data-original-title'=>"Edit #{page.title}", :'data-content'=>"Edit text. Select backdrop and assign page to menu", do
+        .btn.btn-mini
+          i class="icon-pencil"
+          '&nbsp;&nbsp;Edit &nbsp;&nbsp;
+          
+      '&nbsp
+      = link_to menu_page_path(page.menu, page), :method => "delete", :confirm => 'Are you sure?',:rel => "popover",  :'data-original-title'=>"Edit #{page.title}", :'data-content'=>"Edit text. Select backdrop and assign page to menu", do
+        .btn.btn-mini.btn-danger
+          i class="icon-trash icon-white"
+          '&nbsp;&nbsp;Delete &nbsp;&nbsp;
+          
+          
+      '&nbsp
+      = link_to page_gallery_images_path(page), :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload images to the page gallery", do
+        .btn.btn-mini
+          i class="icon-film"
+          '&nbsp;&nbsp;Edit Galery &nbsp;&nbsp;
