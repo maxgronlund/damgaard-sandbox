@@ -12,7 +12,7 @@
             '#{((index+1).to_s + ': ' + menu.pages.first.title_uk.upcase)}
 
       -else
-        = link_to '#', :class=>"dropdown-toggle", :'data-toggle'=>"dropdown", :href=>"#{'menu'+(index+1).to_s}", do
+        = link_to '#', :class=>"dropdown-toggle", :'data-toggle'=>"dropdown", :href=>"#{'menu'+(index+1).to_s}" do
           - if session[:locale] == 'dk'
             '#{((index+1).to_s + ': ' + menu.title.upcase)}
           - else
