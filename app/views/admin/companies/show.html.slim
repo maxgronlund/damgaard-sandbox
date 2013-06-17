@@ -53,10 +53,10 @@
               br
         .span6
           h3 = @company.headline
-          = markdown(@company.body)
+          = simple_format @company.body
           hr
           h3 = @company.headline_uk
-          = markdown(@company.body_uk)
+          = simple_format @company.body_uk
       =link_to 'Edit', edit_admin_company_path(@company), :class => 'btn btn-primary'
       '&nbsp;
       =link_to 'Show', company_path(@company), :class => 'btn'

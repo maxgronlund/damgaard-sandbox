@@ -12,7 +12,7 @@
           h1
             = @headline.upcase
         .content    
-          = markdown(@body)
+          = simple_format @body
           -if can_edit?
             =link_to 'edit', edit_admin_company_path(@company)
       #right-box

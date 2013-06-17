@@ -1,4 +1,4 @@
-#navbar class="navbar navbar-fixed-top
+#navbar class="navbar navbar-fixed-top"
   .navbar-inner
     .container
       ul class="nav"
@@ -10,17 +10,17 @@
           
       ul class="nav pull-right"
         == render 'shared/page_dropdown', :company => company 
-      
         - if current_user
-          li = link_to 'LOG OUT', log_out_path
-          li = link_to 'ADMIN', admin_index_path
+          li =link_to 'LOG OUT', log_out_path
+          li =link_to 'ADMIN', admin_index_path
         - else
           li 
             .lock-top
-              i = link_to '', log_in_path, :class => "icon-lock",
-
-script
-  | $('.dropdown-toggle').dropdown()
+              i 
+                = link_to '', log_in_path, :class => "icon-lock"
+      
+javascript:
+  $('.dropdown-toggle').dropdown()
 
           
           

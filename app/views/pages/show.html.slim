@@ -14,7 +14,7 @@
         .headline
           h1#{@title.upcase}
         .content    
-          = markdown(@body)
+          = simple_format @body
           -if can_edit?
             =link_to 'edit', edit_menu_page_path(@page.menu, @page)
       
