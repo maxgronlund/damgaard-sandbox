@@ -15,8 +15,9 @@ class CompaniesController < InheritedResources::Base
   end
   
   def update
-    go_to = session[:go_to_after_edit] || company_path(@company)
-    update!{ go_to }
+    redirect_to :rooth_path
+    #go_to = session[:go_to_after_edit] || company_path(@company)
+    #update!{ go_to }
   end
   
   def create

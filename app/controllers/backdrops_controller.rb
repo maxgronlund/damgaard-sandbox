@@ -43,6 +43,7 @@ class BackdropsController < InheritedResources::Base
     @backdrop.get_crop_version! @crop_version
     @version_geometry_width, @version_geometry_height = PageUploader.version_dimensions[@crop_version]
     #redirect_to admin_index_path
+    render :layout => 'cropper'
 
   end
 

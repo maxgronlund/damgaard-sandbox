@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+
+    = stylesheet_link_tag    "cropper" , :media => "all" 
+    = javascript_include_tag    "cropper" , :media => "all" 
+    /== render "layouts/async_javascript", path: "application"
+    = csrf_meta_tag unless response.cache_control[:public]
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
+    = yield :head
+  body
+    = yield
+
+
