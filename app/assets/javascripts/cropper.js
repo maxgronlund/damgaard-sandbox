@@ -9,27 +9,10 @@
 //
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
+//
 //= require jquery
-//= require jquery-ui            
-//= require jquery_ujs
-//= require jquery.tablesorter.min
-//= require jquery.Jcrop.min
-//= require menus
-//= require pages
-//= require contact_people
-//= require gallery_images
-//= require bootstrap
-//= require bootstrap-alert
-//= require bootstrap-tooltip
-
-
-
-// require jquery
-// require jquery_ujs
-// require_tree .
-// require jquery.tablesorter.min
-// require jquery.Jcrop.min
-// require bootstrap
-// require bootstrap-alert
-// require bootstrap-tooltip
-// require bootstrap-popover
+//= require jquery-migrate-1.1.1
+//= require jquery.blockUI
+//= require block-ui
+//= require cropper
+//= require jquery.Jcrop

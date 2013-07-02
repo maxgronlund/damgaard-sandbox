@@ -29,7 +29,7 @@
        
 
     .form-actions
-      = link_to 'Back to pages', company_menu_pages_path(@page.menu.company, @page.menu), class: 'btn btn-large'
+      = link_to 'Back to pages', company_menu_pages_path(@page.menu.company, @page.menu), class: 'btn  '
       -if @page.gallery_images.size < 5
         '&nbsp;
-        = link_to 'New Gallery image', new_page_gallery_image_path(@page), class: 'btn btn-primary btn-large'
+        = link_to 'New Gallery image', new_page_gallery_image_path(@page), class: 'btn btn-primary  '

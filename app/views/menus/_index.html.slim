@@ -12,12 +12,18 @@ ul id="sortable-menu" data-update-url="#{sort_company_menus_url(@company)}"
         '&nbsp;
         = link_to '', menu, :method => "delete", :confirm => 'Are you sure?',  :class => "icon-trash"
         '&nbsp
-        = link_to company_menu_pages_path(menu.company, menu), :rel => "popover",  :'data-original-title'=>"Manage pages", :'data-content'=>"Click here to order the pages under the menu", do
-          .btn.btn-mini
-            i class="icon-pencil"
-            '&nbsp;&nbsp;Manage pages &nbsp;&nbsp;
+        
+        = link_to 'Edit title', edit_menu_path(menu), class: 'btn btn-mini'
         '&nbsp;
-        = link_to menu.title.upcase, company_menu_pages_path(menu.company, menu), :rel => "popover",  :'data-original-title'=>"Order pages", :'data-content'=>"Click here to add remove and sort the pages under the menu"
+        = link_to "Edit Pages for #{menu.title.upcase}" , company_menu_pages_path(menu.company, menu), class: 'btn btknk-mini'
+        
+        /= link_to company_menu_pages_path(menu.company, menu, :rel => "popover",  :'data-original-title'=>"Manage pages", :'data-content'=>"Click here to order the pages under the menu") do
+        /  .btn.btn-mini
+        /    i class="icon-pencil"
+        /    '&nbsp;&nbsp;Manage pages &nbsp;&nbsp;
+        /'&nbsp;
+        /= link_to menu.title.upcase, company_menu_pages_path(menu.company, menu), :rel => "popover",  :'data-original-title'=>"Order pages", :'data-content'=>"Click here to add remove and sort the pages under the menu"
+          
       
 
         
@@ -25,6 +31,5 @@ ul id="sortable-menu" data-update-url="#{sort_company_menus_url(@company)}"
     
 br
 
-= link_to 'New Menu with pages', new_company_menu_path(@company), :class => 'btn btn-primary btn-large'
-
+= link_to 'New Menu with pages', new_company_menu_path(@company), :class => 'btn btn-primary  '
 

@@ -1,39 +1,40 @@
-class BackdropsController < InheritedResources::Base
-  load_and_authorize_resource
+class BackdropsController < ApplicationController
+  #load_and_authorize_resource
   def show
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
-    show!
+    @backdrop               = Backdrop.find(params[:id])
   end
 
   def edit
+    @backdrop             = Backdrop.find(params[:id])
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
-    edit!
+    
   end
   
   def new
+    @backdrop = Backdrop.new
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
-    new!
+    
   end
   
   def create
-    create! do |success, failure|
-      success.html do
-        if params[:backdrop][:image]
-          redirect_to crop_backdrop_path(@backdrop), :notice => "backdrop created!"
-        else
-          redirect_to backdrop_path(@backdrop), :notice => "backdrop created!"
-        end
-      end
-      #flash.error = "You are fuckd!"
-      failure.html { render 'new' }
+    @backdrop = Backdrop.new(backdrop_params)
+    @backdrop.save
+
+    if params[:backdrop][:image]
+      redirect_to crop_backdrop_path(@backdrop), :notice => "backdrop created!"
+    else
+      redirect_to backdrop_path(@backdrop), :notice => "backdrop created!"
     end
   end
   
   def update
+    @backdrop             = Backdrop.find(params[:id])
+    @backdrop.update_attributes(backdrop_params)
     if params[:backdrop][:image] && params[:backdrop][:remove_image] != '1'
-      update! { crop_backdrop_path }
+      redirect_to crop_backdrop_path  @backdrop
     else
-      update! { admin_index_path }
+      redirect_to admin_index_path 
     end
   end
   
@@ -60,9 +61,18 @@ class BackdropsController < InheritedResources::Base
   end
   
   def destroy
-    destroy! { admin_index_path}
+    @backdrop               = Backdrop.find(params[:id])
+    @backdrop.destroy
+    redirect_to admin_index_path
   end
   
+  
+  private
+    def backdrop_params
+      #if can_edit?
+        params.require(:backdrop).permit!
+      #end
+    end
   
   
 end

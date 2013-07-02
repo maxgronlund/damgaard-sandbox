@@ -1,6 +1,6 @@
-class UsersController < InheritedResources::Base
+class UsersController < ApplicationController
 #  has_scope :page, :default => 1
-  load_and_authorize_resource
+  #load_and_authorize_resource
 
   helper_method :sort_column, :sort_direction
 
@@ -12,68 +12,76 @@ class UsersController < InheritedResources::Base
     #if mobile_device?
     #  @users = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(10)
     #else
-      @users = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(25)
+    @users = User.search(params[:search]).order(sort_column + " " + sort_direction).page(params[:page]).per(25)
 
     #end
   end
 
   def show
+    @user = User.find(params[:id])
     @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path }
 
     session[:go_to_after_edit] = user_path(@user)
+    
     #return_path = user_path(@user)  # !!! perhaps a system vide helper ?
-    show!
+    
   end
   
   def new
     @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, "Users" => users_path }
-    new!
+    @user = User.new
   end
   
   def edit
+    @user = User.find(params[:id])
     @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, @user.name.capitalize => user_path(@user) }
-    edit!
+    
   end
 
 
   
   def create
-    create! do |success, failure|
-      success.html do
-        unless current_user
-          # log users created by themself in 
-           user = User.authenticate(@user.email, @user.password)
-           cookies[:auth_token] = user.auth_token
-           session[:user_id] = user.id
-        end
-
-        if params[:user][:image]
-          redirect_to crop_user_path(@user), :notice => "User created!"
-        else
-          #if mobile_device?
-          #  redirect_to users_url
-          #else
-            redirect_to admin_index_path, :notice => "User created!"
-          #end
-        end
-      end
-      #flash.error = "You are fuckd!"
-      failure.html { render 'new' }
-    end
+    @user = User.new(user_params)
+    @user.save
+    redirect_to admin_index_path
+    #create! do |success, failure|
+    #  success.html do
+    #    unless current_user
+    #      # log users created by themself in 
+    #       user = User.authenticate(@user.email, @user.password)
+    #       cookies[:auth_token] = user.auth_token
+    #       session[:user_id] = user.id
+    #    end
+    #
+    #    if params[:user][:image]
+    #      redirect_to crop_user_path(@user), :notice => "User created!"
+    #    else
+    #      #if mobile_device?
+    #      #  redirect_to users_url
+    #      #else
+    #        redirect_to admin_index_path, :notice => "User created!"
+    #      #end
+    #    end
+    #  end
+    #  #flash.error = "You are fuckd!"
+    #  failure.html { render 'new' }
+    #end
   end
   
   def update
     remove_password_fields_if_blank! params[:user]
-    
+    @user = User.find(params[:id])
+    @user.update_attributes(user_params)
     if params[:user][:image] && params[:user][:remove_image] != '1'
-      update! { crop_user_path }
+      redirect_to crop_user_path @user
     else
-      update! { admin_index_path }
+      redirect_to  admin_index_path 
     end
   end
 
   
   def crop
+    @user = User.find(params[:id])
     @crop_version = (params[:version] || :thumb).to_sym
     @user.get_crop_version! @crop_version
     @version_geometry_width, @version_geometry_height = AvatarUploader.version_dimensions[@crop_version]
@@ -81,6 +89,7 @@ class UsersController < InheritedResources::Base
   end
 
   def crop_update
+    @user = User.find(params[:id])
     @user.crop_x = params[:user]["crop_x"]
     @user.crop_y = params[:user]["crop_y"]
     @user.crop_h = params[:user]["crop_h"]
@@ -115,4 +124,12 @@ private
   def sort_direction
     %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
   end
+  
+  
+  private
+    def user_params
+
+      params.require(:user).permit!
+
+    end
 end

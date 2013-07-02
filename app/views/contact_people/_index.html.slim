@@ -15,9 +15,10 @@ ul id="sortable-contact" data-update-url="#{sort_company_contact_people_url(@com
       = link_to contact_person.name, edit_company_contact_person_path(@company, contact_person)
               
   
-- if can?( :create, User ) 
+/- if can?( :create, User ) 
+- if true
   br
-  = link_to 'New contact person', new_company_contact_person_path(@company), :rel=> "popover", :class =>"btn btn-primary btn-large", :'data-original-title'=>"Create a new contact person", :'data-content'=>"You have to fill in title name email and phone"
+  = link_to 'New contact person', new_company_contact_person_path(@company), :rel=> "popover", :class =>"btn btn-primary  ", :'data-original-title'=>"Create a new contact person", :'data-content'=>"You have to fill in title name email and phone"
   br
   
   

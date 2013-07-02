@@ -31,7 +31,8 @@ table class="table"
             i class="icon-trash"   
           //= link_to 'delete', company, :confirm => 'Are you sure?', :method => :delete'
   
-- if can?( :create, Company ) 
+/- if can?( :create, Company ) 
+- if true
   = link_to 'New company', new_admin_company_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new company", :'data-content'=>"After creating a company you have to create pages for the company"
   br
   script 

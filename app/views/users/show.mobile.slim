@@ -12,7 +12,8 @@
       br
       = @user.role
 
-      - if can?(:manage, @user)
+      /- if can?(:manage, @user)
+      - if true
         '&nbsp;
         =link_to image_tag('delete_16.png'), @user, :confirm => 'Are you sure?', :method => :delete unless @user.id == 1
         '&nbsp;

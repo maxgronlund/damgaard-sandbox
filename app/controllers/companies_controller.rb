@@ -1,4 +1,4 @@
-class CompaniesController < InheritedResources::Base
+class CompaniesController < ApplicationController
   #layout 'frontend'
   
   def show
@@ -15,18 +15,36 @@ class CompaniesController < InheritedResources::Base
   end
   
   def update
-    redirect_to :rooth_path
-    #go_to = session[:go_to_after_edit] || company_path(@company)
+    #redirect_to :rooth_path
+    go_to = session[:go_to_after_edit] || company_path(@company)
     #update!{ go_to }
+    @company = Company.find(params[:id])
+    @company.update_attributes(document_params)
+    redirect_to go_to
+  end
+  
+  def new
+    @company = Company.new
   end
   
   def create
-    create! { admin_index_path }
+    #create! { admin_index_path }
+    
+    @company = @Company.create(company_params)
   end
   
   def destroy
-    destroy!{ admin_index_path }
+    @company = Company.find(params[:id])
+    @company.destroy
+    redirect_to admin_index_path
   end
+  
+  private
+    def company_params
+      #if can_edit?
+        params.require(:company).permit!
+      #end
+    end
 
 end
 

@@ -26,10 +26,11 @@
         /- if @page.company.google_map != ''
         = f.input :page_type , :include_blank => false , :collection => Page::PAGETYPES
         
-        = link_to page_gallery_images_path(@page), :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload images to the page gallery", do
-          .btn
-            i class="icon-film"
-            '&nbsp;&nbsp;Edit Galery &nbsp;&nbsp;
+        -unless @page.new_record?
+          = link_to page_gallery_images_path(@page), :rel => "popover",  :'data-original-title'=>"Edit page gallery", :'data-content'=>"Upload images to the page gallery" do
+            .btn
+              i class="icon-film"
+              '&nbsp;&nbsp;Edit Galery &nbsp;&nbsp;
       .span4
 
         
@@ -42,7 +43,7 @@
         = f.input :body_uk,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
   .form-actions
     
-    = f.submit 'Save', :class =>"btn btn-primary btn-large", :name => nil
+    = f.submit 'Save', :class =>"btn btn-primary  ", :name => nil
 
     
 

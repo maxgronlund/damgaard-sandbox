@@ -1,10 +1,12 @@
-class PagesController < InheritedResources::Base
-  load_and_authorize_resource
-  belongs_to :company , :optional => true
+class PagesController < ApplicationController
+
   
   def index
-    @menu = Menu.find(params[:menu_id])
-    @company = @menu.company
+
+    
+    @menu     = Menu.find(params[:menu_id])
+    @company  = Company.find(params[:company_id])
+    @pages    = @company.pages
     
   end
   
@@ -15,7 +17,7 @@ class PagesController < InheritedResources::Base
     @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, @company.title.capitalize => admin_company_path(@company) }
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
-    new!
+    @page = Page.new
   end
   
   
@@ -30,7 +32,7 @@ class PagesController < InheritedResources::Base
     @backdrops = Backdrop.order('title DESC')
     @backdrops_options = @backdrops.map { |backdrop| [backdrop.title, backdrop.id] }
     
-    edit!
+      
   end
   
   def show
@@ -47,13 +49,15 @@ class PagesController < InheritedResources::Base
   
   def update
     go_to = session[:go_to_after_edit] || company_menu_pages_path( @page.company, @page.menu)
-    update! { go_to }
+    @page = Page.find(params[:id])
+    @page.update_attributes(page_params)
+    redirect_to go_to
     # 
   end
   
   def create
     @menu = Menu.find(params[:menu_id])
-    @menu.pages.create(params[:page])
+    @menu.pages.create(page_params)
     
     #redirect_to admin_company_path( @page.company)
     redirect_to company_menu_pages_path(@menu.company, @menu)
@@ -78,5 +82,12 @@ class PagesController < InheritedResources::Base
     end
     render nothing: true
   end
+  
+  private
+    def page_params
+      #if can_edit?
+        params.require(:page).permit!
+      #end
+    end
   
 end

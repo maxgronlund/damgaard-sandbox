@@ -1,4 +1,4 @@
-= simple_form_for(@gallery_image) do |f|
+= simple_form_for [@page, @gallery_image] do |f|
   = f.error_notification
 
   fieldset
@@ -7,7 +7,7 @@
     = f.hidden_field :image_cache
     = f.hidden_field :page_id
   .form-actions
-    = link_to 'Back to gallery', :back, :class =>"btn btn-large"
+    = link_to 'Back to gallery', :back, :class =>"btn  "
     '&nbsp;
-    = f.submit 'Upload image', :class =>"btn btn-primary btn-large"
+    = f.submit 'Upload image', :class =>"btn btn-primary  "
 

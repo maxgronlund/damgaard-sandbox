@@ -25,7 +25,8 @@ table class="table" id="sortTableExample"
             i class="icon-trash"
                 
 
-- if can?( :create, User ) 
+/- if can?( :create, User ) 
+- if true
   br
   = link_to 'New user', new_user_path, :rel=> "popover", :class =>"btn btn-primary", :'data-original-title'=>"Create a new user", :'data-content'=>"To sign up a new user all you need is an email and a password"
   br

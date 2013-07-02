@@ -6,25 +6,29 @@ gem 'rails', '3.2.13'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
+group :assets do
+  gem 'sass-rails',   '~> 3.2.3'
+  gem 'coffee-rails', '~> 3.2.1'
+  gem 'uglifier', '>= 1.0.3'
+end
 
-gem 'sass-rails',   '~> 3.2.3'
-gem 'coffee-rails', '~> 3.2.1'
-gem 'uglifier', '>= 1.0.3'
 
-gem 'jquery-rails'
-gem 'inherited_resources'
-gem "cancan"
+gem 'jquery-rails', '2.3.0'
+#gem "jquery-ui-rails"
+gem 'responders'
+gem 'strong_parameters'
+
 gem "slim-rails"
 gem 'kaminari'
-#gem 'redcarpet'
+
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'simple_form'
 gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'country_select'
-gem "friendly_id", "~> 4.0.0"
-gem 'acts_as_list'
+#gem "friendly_id", "~> 4.0.9"
+#gem 'acts_as_list'
 gem 'vpim'
 
 # Gems used only for assets and not required
@@ -39,7 +43,9 @@ gem 'vpim'
   gem 'uglifier', '>= 1.0.3'
 #end
 
-
+group :development do
+  gem 'better_errors'
+end
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

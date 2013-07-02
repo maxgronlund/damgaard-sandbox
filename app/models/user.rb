@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :role, :email, :password, :password_confirmation
+  #attr_accessible :name, :role, :email, :password, :password_confirmation
   has_secure_password
   validates_presence_of :name
   validates_confirmation_of :password
@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   # Avatar image
-  attr_accessible :image, :image_cache, :remote_image_url, :remove_image,:role
+  #attr_accessible :image, :image_cache, :remote_image_url, :remove_image,:role
   serialize :crop_params, Hash
   mount_uploader :image, AvatarUploader
   include ImageCrop

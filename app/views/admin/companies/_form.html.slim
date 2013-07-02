@@ -1,5 +1,5 @@
 
-= simple_form_for @company , :validate => true do |f| 
+= simple_form_for [ :admin, @company] , :validate => true do |f| 
   -if f.error_notification
     .alert.alert-error.fade.in
       = link_to 'x', '#', :class=>"close", :'data-dismiss'=> "alert"

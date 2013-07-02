@@ -12,15 +12,19 @@
     ul id="sortable-page2" data-update-url="#{sort_pages_url}"
       - @pages.each do |page|
         = content_tag_for :li, page do
-          == render 'show', :page => page
+          == render 'pages/show', :page => page
           /hr
           /i class="icon-resize-vertical"
           /'&nbsp;
           /= page.title 
     .form-actions
-      = link_to 'Back to company', admin_company_path(@company), class: 'btn btn-large'
+      /  = link_to 'Back to company', admin_company_path(@company), class: 'btn  '
+      /  '&nbsp;
+      = link_to 'New page', new_menu_page_path(@menu),:class => 'btn btn-primary'
       '&nbsp;
-      = link_to 'New page', new_menu_page_path(@menu),:class => 'btn btn-primary btn-large'
+      = link_to 'Edit title', edit_menu_path(@menu),:class => 'btn '
+      /&nbsp;
+      /= link_to 'Edit title', edit_menu_path(@menu)
 script 
   | $(function () {
       $("a[rel=popover]")

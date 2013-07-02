@@ -1,5 +1,5 @@
 'ksjhdf
-= simple_form_for(@menu) do |f|
+= simple_form_for [@company , @menu ] do |f|
   -if f.error_notification
     .alert.alert-error.fade.in
       = link_to 'x', '#', :class=>"close", :'data-dismiss'=> "alert"

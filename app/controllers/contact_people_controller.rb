@@ -1,20 +1,29 @@
-class ContactPeopleController < InheritedResources::Base
-  load_and_authorize_resource
-  belongs_to :company , :optional => true
+class ContactPeopleController < ApplicationController
+  #load_and_authorize_resource
+  
   
   def new
     @company = Company.find(params[:company_id])
     @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, @company.title.capitalize => admin_company_path(@company) }
-    new!
+    
   end
   
   def edit
+    @contact_person    = ContactPerson.find(params[:id])
     @breadcrumbs = { "Home" => root_path, 'Admin' => admin_index_path, @contact_person.company.title.capitalize => admin_company_path(@contact_person.company) }
-    edit!
+      
   end
   
   def update
-    update! { admin_company_path( @contact_person.company)}
+    #update! { admin_company_path( @contact_person.company)}
+    @contact_person    = ContactPerson.find(params[:id])
+   
+    @contact_person.update_attributes(contact_person_params)
+    if params[:contact_person][:image] && params[:contact_person][:remove_image] != '1'
+      redirect_to crop_contact_person_path  @contact_person
+    else
+      redirect_to admin_company_path( @contact_person.company) 
+    end
   end
   
   def create
@@ -31,13 +40,13 @@ class ContactPeopleController < InheritedResources::Base
     end
   end
   
-  def update
-    if params[:contact_person][:image] && params[:contact_person][:remove_image] != '1'
-      update! { crop_company_contact_person_path(@contact_person.company, @contact_person) }
-    else
-      update! { admin_company_path( @contact_person.company) }
-    end
-  end
+  #def update
+  #  if params[:contact_person][:image] && params[:contact_person][:remove_image] != '1'
+  #    update! { crop_company_contact_person_path(@contact_person.company, @contact_person) }
+  #  else
+  #    update! { admin_company_path( @contact_person.company) }
+  #  end
+  #end
   
   def crop
     @contact_person   = ContactPerson.find(params[:id])
@@ -45,6 +54,7 @@ class ContactPeopleController < InheritedResources::Base
     @contact_person.get_crop_version! @crop_version
     @version_geometry_width, @version_geometry_height = AvatarUploader.version_dimensions[@crop_version]
     #redirect_to admin_index_path
+     render :layout => 'cropper'
   
   end
   
@@ -67,7 +77,11 @@ class ContactPeopleController < InheritedResources::Base
 #  end
   
   def destroy
-    destroy! { admin_company_path( @contact_person.company)}
+    @contact_person    = ContactPerson.find(params[:id])
+    go_to =  admin_company_path( @contact_person.company)
+     
+    @contact_person.destroy
+    redirect_to go_to 
   end
   
   def sort
@@ -76,5 +90,12 @@ class ContactPeopleController < InheritedResources::Base
     end
     render nothing: true
   end
+  
+  private
+    def contact_person_params
+      #if can_edit?
+        params.require(:contact_person).permit!
+      #end
+    end
   
 end

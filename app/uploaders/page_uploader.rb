@@ -3,10 +3,18 @@
 class PageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
-
+  
+  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
+  #include Sprockets::Helpers::RailsHelper
+  #include Sprockets::Helpers::IsolatedHelper
+  
   # Choose what kind of storage to use for this uploader:
   storage :file
-  # storage :fog
+  #storage :fog
+
+  #include CarrierWave::MimeTypes
+  
+  #process :set_content_type
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
@@ -16,21 +24,21 @@ class PageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "/assets/fallback/" + [version_name, "page.png"].compact.join('_')
+    "/assets/fallback/" + [version_name, "artwork.png"].compact.join('_')
   end
 
   # Process files as they are uploaded:
   process :convert => 'jpg'
-  process :resize_to_limit => [648, 716]
+  #process :resize_to_limit => [1170, 1170]
 
   # Create different versions of your uploaded files:  
   cattr_accessor :version_dimensions
   self.version_dimensions = {
-    :xxsmall => [40, 30],
-    :xsmall => [80, 60],
-    :small => [160, 120],
-    :medium => [260, 180],
-    :large => [360, 268],
+  :xxsmall => [40, 30],
+  :xsmall => [80, 60],
+  :small => [160, 120],
+  :medium => [260, 180],
+  :large => [360, 268],
   }
 
   RESIZE_GRAVITY = 'NorthWest'
@@ -48,6 +56,7 @@ EOT
   def manualcrop
     return unless model.cropping?
     return if model.crop_params[version_name.to_sym].blank?
+    
     model.get_crop_version!(version_name)
 
     manipulate_crop! do |img|
