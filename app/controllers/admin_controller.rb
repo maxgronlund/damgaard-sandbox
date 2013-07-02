@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  
+  before_filter :admin_only
   def index
     if current_user
       @breadcrumbs = { "Home" => root_path }

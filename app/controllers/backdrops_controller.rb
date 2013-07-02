@@ -1,5 +1,5 @@
 class BackdropsController < ApplicationController
-  #load_and_authorize_resource
+  before_filter :admin_only
   def show
     @breadcrumbs = { "Home" => root_path, "Admin" => admin_index_path }
     @backdrop               = Backdrop.find(params[:id])

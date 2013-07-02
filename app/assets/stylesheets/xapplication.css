@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ * bootstrap
+ * jquery.Jcrop
+ * menus
+ * pages
+ * contact_people
+ * gallery_images
+*/
+
+
+ 
+
+.top-gap{
+	padding-top: 60px;
+}
+
+.preview{
+    width:100px;
+    height:100px;
+    overflow:hidden;
+}
+
+.gallery-admin-thumb{
+    width:100px;
+    height:100px;
+
+}
+
+
+#collor-theme{
+  clear:both;
+	background-color:#ff4600;
+
+	width: 160px;
+	height:48px;
+	margin-top: 10px;
+}
+
+
+
+

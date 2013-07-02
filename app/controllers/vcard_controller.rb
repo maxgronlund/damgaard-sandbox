@@ -22,11 +22,16 @@ class VcardController < ApplicationController
       			addr.locality = '8361 Hasselager'
       			addr.country = 'Danmark'
   		end
-
-  		maker.add_tel(@contact.tlf) 
-  		maker.add_email(@contact.email) { |e| e.location = 'work' }
+      if @contact.tlf.to_s != '' 
+  		  maker.add_tel(@contact.tlf)
+		  end
+  		if @contact.email.to_s != '' 
+  		  maker.add_email(@contact.email) { |e| e.location = 'work' }  if @contact.email 
+		  end
   		maker.add_tel('http:damgaard-sandbox.com') 
-  		maker.add_note(@contact.title)
+  		if @contact.title.to_s != ''
+  		  maker.add_note(@contact.title)  
+		  end
 
   	end
 

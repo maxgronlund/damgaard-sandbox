@@ -13,6 +13,7 @@ h3 Backdrops <small>Used for pages</small>
             .caption
               h5 = truncate(backdrop.title, :length => 12)
               br
+              
               =link_to backdrop do
                  i class="icon-eye-open"
               '&nbsp;
@@ -21,9 +22,6 @@ h3 Backdrops <small>Used for pages</small>
               '&nbsp;
               =link_to(backdrop, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
                 i class="icon-trash"
-  /td = link_to backdrop.title, backdrop, :rel=>'twipsy', :title=>'Show'
-  /td public
-  /td
 
 br
 

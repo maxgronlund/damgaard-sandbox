@@ -1,5 +1,5 @@
 class CompaniesController < ApplicationController
-  #layout 'frontend'
+  before_filter :admin_only
   
   def show
 

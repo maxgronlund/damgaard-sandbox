@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-
+  before_filter :admin_only, except:[:show]
   
   def index
 

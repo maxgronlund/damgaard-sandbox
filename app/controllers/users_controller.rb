@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-#  has_scope :page, :default => 1
-  #load_and_authorize_resource
+
+  before_filter :admin_only
 
   helper_method :sort_column, :sort_direction
 
