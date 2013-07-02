@@ -27,7 +27,7 @@ gem "nested_form", :git => "git://github.com/ryanb/nested_form.git"
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'country_select'
-#gem "friendly_id", "~> 4.0.9"
+gem "friendly_id", "~> 4.0.9"
 #gem 'acts_as_list'
 gem 'vpim'
 

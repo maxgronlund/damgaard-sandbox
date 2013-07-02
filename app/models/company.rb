@@ -7,8 +7,8 @@ class Company < ActiveRecord::Base
   
   validates_presence_of :title, :title_uk
   
-  #extend FriendlyId
-  #friendly_id :title, :use => :slugged
+  extend FriendlyId
+  friendly_id :title, :use => :slugged
   
   #attr_accessible :image, :image_cache, :google_map,
   #                :title, :title_uk, :headline, 
