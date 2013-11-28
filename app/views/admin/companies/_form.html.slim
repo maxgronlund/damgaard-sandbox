@@ -10,8 +10,10 @@
       .span4
         = f.input :title ,:input_html => {:class => 'input-xlarge'}
         = f.input :title_uk ,:input_html => {:class => 'input-xlarge'}
+        = f.input :title_de ,:input_html => {:class => 'input-xlarge'}
         = f.input :headline ,:input_html => {:class => 'input-xlarge'}
         = f.input :headline_uk ,:input_html => {:class => 'input-xlarge'}
+        = f.input :headline_de ,:input_html => {:class => 'input-xlarge'}
         = link_to '?', '#', :rel=> "popover", :class =>"btn btn-mini", :'data-original-title'=>"Background image", :'data-content'=>"This image will been shown as the background on the company page, you can upload images from the admin page"
         '&nbsp;Backdrop image
         br
@@ -38,7 +40,9 @@
         'Short description UK
         br
         = f.input :body_uk,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
-      
+        'Short description DE
+        br
+        = f.input :body_de,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
 
   .form-actions
     label class="checkbox"

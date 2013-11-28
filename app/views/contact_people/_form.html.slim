@@ -1,4 +1,4 @@
-= simple_form_for @contact_person, :html => { :class => 'form-vertical' } , :validate => true do |f| 
+= simple_form_for [:admin, @dompany, @contact_person], :html => { :class => 'form-vertical' } , :validate => true do |f| 
   -if f.error_notification
     .alert.alert-error.fade.in
       = link_to 'x', '#', :class=>"close", :'data-dismiss'=> "alert"

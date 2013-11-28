@@ -1,12 +1,23 @@
 #navbar class="navbar navbar-fixed-top"
   .navbar-inner
     .container
+      //=debug session[:locale]
       ul class="nav"
         li = link_to 'HOME', root_path
-        - if session[:locale] == 'dk'
-          li =link_to 'ENGLISH', locale_path(:locale => 'en'), :method => :post
-        -else
+        - case session[:locale]
+        
+        -when 'en'
           li =link_to 'DANSK', locale_path(:locale => 'dk'), :method => :post
+          li =link_to 'GERMAN', locale_path(:locale => 'de'), :method => :post
+        -when 'de'
+          li =link_to 'ENGLISH', locale_path(:locale => 'en'), :method => :post
+          li =link_to 'DANSK', locale_path(:locale => 'dk'), :method => :post
+        -when 'dk'
+          li =link_to 'ENGLISH', locale_path(:locale => 'en'), :method => :post
+          li =link_to 'GERMAN', locale_path(:locale => 'de'), :method => :post
+        -else
+          li =link_to 'ENGLISH', locale_path(:locale => 'en'), :method => :post
+          li =link_to 'GERMAN', locale_path(:locale => 'de'), :method => :post
           
       ul class="nav pull-right"
         == render 'shared/page_dropdown', :company => company 

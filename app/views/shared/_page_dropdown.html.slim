@@ -6,22 +6,30 @@
       
       - elsif menu.pages.length == 1
         = link_to  menu.pages.first do
-          - if session[:locale] == 'dk'
+          -case session[:locale]
+          - when 'dk'
             '#{((index+1).to_s + ': ' + menu.pages.first.title.upcase)}
-          - else                        
+          - when 'en'                        
             '#{((index+1).to_s + ': ' + menu.pages.first.title_uk.upcase)}
-
+          -when 'de'
+            '#{((index+1).to_s + ': ' + menu.pages.first.title_de.upcase)}
       -else
         = link_to '#', :class=>"dropdown-toggle", :'data-toggle'=>"dropdown", :href=>"#{'menu'+(index+1).to_s}" do
-          - if session[:locale] == 'dk'
+          -case session[:locale]
+          -when 'dk'
             '#{((index+1).to_s + ': ' + menu.title.upcase)}
-          - else
+          -when 'en'
             '#{((index+1).to_s + ': ' + menu.title_uk.upcase)}
+          -when 'de'
+            '#{((index+1).to_s + ': ' + menu.title_de.upcase)}
           b class="caret"
           
         ul class="dropdown-menu"
           - menu.pages.order('position').each do |page|
-            - if session[:locale] == 'dk'
+            -case session[:locale]
+            -when 'dk'
               li =link_to page.title.upcase, page
-            -else
+            -when 'en'
               li =link_to page.title_uk.upcase, page
+            -when 'de'
+              li =link_to page.title_de.upcase, page

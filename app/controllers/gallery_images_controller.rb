@@ -86,7 +86,12 @@ class GalleryImagesController < ApplicationController
   end
   
   def destroy
-    destroy! { admin_index_path}
+    @gallery_image             = GalleryImage.find(params[:id])
+    @gallery_image.delete
+    go_to =  page_gallery_images_path( @gallery_image.page)  
+    @gallery_image.delete
+    redirect_to go_to
+    #destroy! { admin_index_path}
   end
   
   def sort

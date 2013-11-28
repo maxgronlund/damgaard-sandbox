@@ -10,6 +10,7 @@
       .span4
         = f.input :title ,:input_html => {:class => 'input-xlarge'}
         = f.input :title_uk ,:input_html => {:class => 'input-xlarge'}
+        = f.input :title_de ,:input_html => {:class => 'input-xlarge'}
         = f.hidden_field :company_id, :value => @menu.company.id
 
       
@@ -31,9 +32,8 @@
             .btn
               i class="icon-film"
               '&nbsp;&nbsp;Edit Galery &nbsp;&nbsp;
+    .row
       .span4
-
-        
         'Short description DK
         br
         = f.input :body,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
@@ -41,6 +41,10 @@
         'Short description UK
         br
         = f.input :body_uk,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
+      .span4
+        'Short description DE
+        br
+        = f.input :body_de,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
   .form-actions
     
     = f.submit 'Save', :class =>"btn btn-primary  ", :name => nil

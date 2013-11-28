@@ -38,9 +38,21 @@ class PagesController < ApplicationController
   def show
     
     @page = Page.find(params[:id])
-    #@gallery_image = @page.gallery_images.first
-    @title = session[:locale] == 'dk' ? @page.title : @page.title_uk
-    @body = session[:locale] == 'dk' ? @page.body : @page.body_uk
+    case session[:locale]
+    when 'de'
+      @title = @page.title_de
+      @body = @page.body_de
+    when 'en'
+      @title =  @page.title_uk
+      @body = @page.body_uk
+    when 'dk'
+      @title =  @page.title
+      @body = @page.body
+    else
+      @title =  @page.title
+      @body = @page.body
+    end
+  
     
     session[:go_to_after_edit] = page_path(@page)
     
@@ -65,8 +77,11 @@ class PagesController < ApplicationController
   
   def destroy
     @menu = Menu.find(params[:menu_id])
+    @page = Page.find(params[:id])
+    
     go_to = company_menu_pages_path( @page.company, @page.menu)
-    destroy! { go_to }
+    @page.delete
+    redirect_to go_to
   end
   
   def index

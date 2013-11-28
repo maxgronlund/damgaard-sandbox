@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120609105330) do
+ActiveRecord::Schema.define(:version => 20131128074905) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(:version => 20120609105330) do
     t.string   "color_theme"
     t.text     "google_map"
     t.string   "slug"
+    t.string   "title_de"
+    t.string   "headline_de"
+    t.text     "body_de"
   end
 
   add_index "companies", ["slug"], :name => "index_companies_on_slug", :unique => true
@@ -80,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20120609105330) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "position"
+    t.string   "title_de"
   end
 
   add_index "menus", ["company_id"], :name => "index_menus_on_company_id"
@@ -98,6 +102,8 @@ ActiveRecord::Schema.define(:version => 20120609105330) do
     t.string   "slug"
     t.integer  "position"
     t.string   "page_type"
+    t.string   "title_de"
+    t.text     "body_de"
   end
 
   add_index "pages", ["company_id"], :name => "index_pages_on_company_id"

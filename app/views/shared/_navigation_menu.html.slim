@@ -9,9 +9,14 @@
         -else
           li = link_to 'log in', log_in_path
           
-        - if session[:locale] == 'dk'
+        - case session[:locale]
+        -when 'de'
           li =link_to 'english', locale_path(:locale => 'en'), :method => :post
-        -else
           li =link_to 'dansk', locale_path(:locale => 'dk'), :method => :post
-          
+        -when 'en'
+          li =link_to 'deutch', locale_path(:locale => 'de'), :method => :post
+          li =link_to 'dansk', locale_path(:locale => 'dk'), :method => :post
+        -when 'dk'
+          li =link_to 'english', locale_path(:locale => 'en'), :method => :post
+          li =link_to 'deutch', locale_path(:locale => 'de'), :method => :post
     

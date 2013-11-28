@@ -32,6 +32,7 @@ private
   
   def set_user_language
     session[:locale] = session[:locale]  || 'dk'
+    #I18n.locale = params[:locale] || 'dk'
   end
   
   def forbidden

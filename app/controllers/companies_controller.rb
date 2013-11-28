@@ -2,11 +2,27 @@ class CompaniesController < ApplicationController
   before_filter :admin_only, except:[:show]
   
   def show
-
+    logger.debug '------------- companies-------------'
+    logger.debug session[:locale]
     @company = Company.find(params[:id])
-    @title = session[:locale] == 'dk' ? @company.title : @company.title_uk
-    @headline = session[:locale] == 'dk' ? @company.headline : @company.headline_uk
-    @body = session[:locale] == 'dk' ? @company.body : @company.body_uk
+    case session[:locale]
+    when 'de'
+      @title = @company.title_de
+      @headline = @company.headline_de
+      @body     = @company.body_de
+    when 'en'
+      @title = @company.title_uk
+      @headline = @company.headline_uk
+      @body     = @company.body_uk
+    when 'dk'
+      @title    = @company.title
+      @headline = @company.headline
+      @body     = @company.body
+    else
+      @title    = @company.title
+      @headline = @company.headline
+      @body     = @company.body
+    end
     @companies = Company.all
     
     session[:go_to_after_edit] = company_path(@company)
