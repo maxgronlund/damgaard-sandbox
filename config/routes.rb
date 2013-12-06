@@ -1,13 +1,10 @@
 BootstrapOnRails::Application.routes.draw do
   
+  resources :people
 
 
-  resources :contact_people do
-    member do
-      get 'crop'
-      put 'crop_update'
-    end
-  end
+  resources :contact_people
+
   
   resources :menus
   resource :locale
@@ -50,6 +47,7 @@ BootstrapOnRails::Application.routes.draw do
   end
     
   resources :companies do
+    resources :contact_people
     resources :contact_people do
       collection { post :sort }
       member do

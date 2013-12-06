@@ -2,14 +2,14 @@ h3 Contact persons <small>Shows up on the contact persons page</small>
 hr              
 ul id="sortable-contact" data-update-url="#{sort_company_contact_people_url(@company)}"
 
-  - @company.contact_people.order('position').each do |contact_person| 
+  - @company.contact_people.order('position').each do | contact_person| 
     = content_tag_for :li, contact_person do
       i class="icon-resize-vertical"
       '&nbsp;
       =link_to edit_company_contact_person_path(@company, contact_person) do
         i class="icon-pencil"
       '&nbsp;
-      =link_to(contact_person, :title=>'Delete', :confirm => 'Are you sure?', :method => :delete)  do
+      =link_to company_contact_person_path(@company, contact_person), :title=>'Delete', :confirm => 'Are you sure?', :method => :delete  do
         i class="icon-trash"
       '&nbsp;
       = link_to contact_person.name, edit_company_contact_person_path(@company, contact_person)
@@ -22,6 +22,6 @@ ul id="sortable-contact" data-update-url="#{sort_company_contact_people_url(@com
   br
   
   
-  
+  /contact_people_path
   
   /sortable-contact

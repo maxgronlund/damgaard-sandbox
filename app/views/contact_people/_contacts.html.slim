@@ -1,25 +1,25 @@
 
               
 
-- contact_people.order('position').each do |contact_person| 
-  .contact_person
+- contact_people.order('position').each do |contact_people| 
+  .contact_people
 
     .avatar
-      = image_tag(contact_person.image_url :thumb)
+      = image_tag(contact_people.image_url :thumb)
     .title
-      b =contact_person.name
+      b =contact_people.name
       br
-      = contact_person.title
+      = contact_people.title
       br
     .info
       'P:&nbsp;
-      = contact_person.tlf
+      = contact_people.tlf
       br
       'E:&nbsp;
-      = mail_to contact_person.email, contact_person.email, :encode => "javascript"
+      = mail_to contact_people.email, contact_people.email, :encode => "javascript"
       br
       'VCard:&nbsp;
-      = link_to 'Download', vcard_path(contact_person)
+      = link_to 'Download', vcard_path(contact_people)
 
           
                 

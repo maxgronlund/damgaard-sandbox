@@ -2,7 +2,7 @@ require 'test_helper'
 
 class ContactPeopleControllerTest < ActionController::TestCase
   setup do
-    @contact_person = contact_people(:one)
+    @contact_people = contact_people(:one)
   end
 
   test "should get index" do
@@ -16,32 +16,32 @@ class ContactPeopleControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create contact_person" do
-    assert_difference('ContactPerson.count') do
-      post :create, contact_person: @contact_person.attributes
+  test "should create contact_people" do
+    assert_difference('ContactPeople.count') do
+      post :create, contact_people: @contact_people.attributes
     end
 
-    assert_redirected_to contact_person_path(assigns(:contact_person))
+    assert_redirected_to contact_people_path(assigns(:contact_people))
   end
 
-  test "should show contact_person" do
-    get :show, id: @contact_person
+  test "should show contact_people" do
+    get :show, id: @contact_people
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @contact_person
+    get :edit, id: @contact_people
     assert_response :success
   end
 
-  test "should update contact_person" do
-    put :update, id: @contact_person, contact_person: @contact_person.attributes
-    assert_redirected_to contact_person_path(assigns(:contact_person))
+  test "should update contact_people" do
+    put :update, id: @contact_people, contact_people: @contact_people.attributes
+    assert_redirected_to contact_people_path(assigns(:contact_people))
   end
 
-  test "should destroy contact_person" do
-    assert_difference('ContactPerson.count', -1) do
-      delete :destroy, id: @contact_person
+  test "should destroy contact_people" do
+    assert_difference('ContactPeople.count', -1) do
+      delete :destroy, id: @contact_people
     end
 
     assert_redirected_to contact_people_path

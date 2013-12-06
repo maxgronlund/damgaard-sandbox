@@ -5,7 +5,7 @@ class VcardController < ApplicationController
 
   
   def show
-  	@contact = ContactPerson.find(params[:id])
+  	@contact = ContactPeople.find(params[:id])
 
   	card = Vpim::Vcard::Maker.make2 do |maker|
 

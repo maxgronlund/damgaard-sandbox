@@ -1,4 +1,4 @@
-= simple_form_for [:admin, @dompany, @contact_person], :html => { :class => 'form-vertical' } , :validate => true do |f| 
+= simple_form_for [ @company, @contact_person], :html => { :class => 'form-vertical' } , :validate => true do |f| 
   -if f.error_notification
     .alert.alert-error.fade.in
       = link_to 'x', '#', :class=>"close", :'data-dismiss'=> "alert"
@@ -8,6 +8,7 @@
       legend Contact info
       = f.input :image, :input_html => {:class =>"user_name"}
       = f.hidden_field :image_cache
+      
       
       - if @contact_person.image.present?
         .checkbox
