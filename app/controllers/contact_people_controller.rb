@@ -90,8 +90,8 @@ class ContactPeopleController < ApplicationController
   end
   
   def sort
-    params[:contact_people].each_with_index do |id, index|
-      ContactPeople.update_all({position: index+1}, {id: id})
+    params[:contact_person].each_with_index do |id, index|
+      ContactPerson.update_all({position: index+1}, {id: id})
     end
     render nothing: true
   end
