@@ -82,7 +82,7 @@ class ContactPeopleController < ApplicationController
 #  end
   
   def destroy
-    @contact_people    = ContactPeople.find(params[:id])
+    @contact_people    = ContactPerson.find(params[:id])
     go_to =  admin_company_path( @contact_people.company)
      
     @contact_people.destroy
