@@ -15,7 +15,7 @@
               .icon-resize
                 i class="icon-resize-vertical"
               '&nbsp;
-              = image_tag(gallery_image.image_url(:medium) ,{:height => 80})
+              = image_tag(gallery_image.image_url(:medium), :height => '80', :width => '80', alt: "Drag to order")
               '&nbsp;
               = image_tag(gallery_image.image_url :small)
             .span3   

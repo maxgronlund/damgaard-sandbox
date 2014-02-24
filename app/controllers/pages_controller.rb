@@ -45,6 +45,12 @@ class PagesController < ApplicationController
     when 'en'
       @title =  @page.title_uk
       @body = @page.body_uk
+    when 'no'
+      @title =  @page.title_no
+      @body = @page.body_no
+    when 'se'
+      @title =  @page.title_se
+      @body = @page.body_se
     when 'dk'
       @title =  @page.title
       @body = @page.body

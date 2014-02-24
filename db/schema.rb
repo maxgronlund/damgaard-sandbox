@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131128074905) do
+ActiveRecord::Schema.define(:version => 20140224070240) do
 
   create_table "backdrops", :force => true do |t|
     t.string   "title"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(:version => 20131128074905) do
 
   create_table "companies", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "street"
     t.string   "zip"
     t.string   "city"
@@ -45,6 +45,12 @@ ActiveRecord::Schema.define(:version => 20131128074905) do
     t.string   "title_de"
     t.string   "headline_de"
     t.text     "body_de"
+    t.string   "title_no",    :default => ""
+    t.text     "body_no"
+    t.string   "title_se",    :default => ""
+    t.text     "body_se"
+    t.string   "headline_no", :default => ""
+    t.string   "headline_se", :default => ""
   end
 
   add_index "companies", ["slug"], :name => "index_companies_on_slug", :unique => true
@@ -80,10 +86,12 @@ ActiveRecord::Schema.define(:version => 20131128074905) do
     t.string   "title"
     t.string   "title_uk"
     t.integer  "company_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
     t.integer  "position"
     t.string   "title_de"
+    t.string   "title_se",   :default => ""
+    t.string   "title_no",   :default => ""
   end
 
   add_index "menus", ["company_id"], :name => "index_menus_on_company_id"
@@ -92,8 +100,8 @@ ActiveRecord::Schema.define(:version => 20131128074905) do
     t.string   "title"
     t.text     "body"
     t.integer  "company_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "title_uk"
     t.text     "body_uk"
     t.integer  "backdrop_id"
@@ -104,11 +112,21 @@ ActiveRecord::Schema.define(:version => 20131128074905) do
     t.string   "page_type"
     t.string   "title_de"
     t.text     "body_de"
+    t.string   "title_no",    :default => ""
+    t.text     "body_no"
+    t.string   "title_se",    :default => ""
+    t.text     "body_se"
   end
 
   add_index "pages", ["company_id"], :name => "index_pages_on_company_id"
   add_index "pages", ["menu_id"], :name => "index_pages_on_menu_id"
   add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"

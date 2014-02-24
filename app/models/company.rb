@@ -5,7 +5,7 @@ class Company < ActiveRecord::Base
   has_many :contact_people
   belongs_to :backdrop
   
-  validates_presence_of :title, :title_uk
+  validates_presence_of :title, :title_uk, :title_no, :title_se, :title_de
   
   extend FriendlyId
   friendly_id :title, :use => :slugged

@@ -4,20 +4,12 @@
       //=debug session[:locale]
       ul class="nav"
         li = link_to 'HOME', root_path
-        - case session[:locale]
-        
-        -when 'en'
-          li =link_to 'DANSK', locale_path(:locale    => 'dk'), :method => :post
-          li =link_to 'DEUTSCH', locale_path(:locale  => 'de'), :method => :post
-        -when 'de'
-          li =link_to 'ENGLISH', locale_path(:locale  => 'en'), :method => :post
-          li =link_to 'DANSK', locale_path(:locale    => 'dk'), :method => :post
-        -when 'dk'
-          li =link_to 'ENGLISH', locale_path(:locale  => 'en'), :method => :post
-          li =link_to 'DEUTSCH', locale_path(:locale  => 'de'), :method => :post
-        -else
-          li =link_to 'ENGLISH', locale_path(:locale  => 'en'), :method => :post
-          li =link_to 'DEUTSCH', locale_path(:locale  => 'de'), :method => :post
+        li =link_to 'DK', locale_path(:locale => 'dk'), :method => :post
+        li =link_to 'DE', locale_path(:locale => 'de'), :method => :post
+        li =link_to 'EN', locale_path(:locale => 'en'), :method => :post
+        li =link_to 'NO', locale_path(:locale => 'no'), :method => :post
+        li =link_to 'SE', locale_path(:locale => 'se'), :method => :post
+
           
       ul class="nav pull-right"
         == render 'shared/page_dropdown', :company => company 

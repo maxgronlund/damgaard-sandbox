@@ -48,9 +48,10 @@
             = f.hidden_field attribute, :id => attribute
           = f.hidden_field :crop_version, :value => @crop_version
           .form-actions
-            = link_to 'Back', "javascript: history.go(-1)", class: 'btn'
-            '&nbsp;
-            = f.submit "Save", :class => "btn", id: "submit_link"
+            .right
+              = link_to 'Back', "javascript: history.go(-1)", class: 'btn'
+              '&nbsp;
+              = f.submit "Save", :class => "btn btn-primary", id: "submit_link"
       
             
       .span8

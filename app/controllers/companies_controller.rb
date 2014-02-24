@@ -4,25 +4,39 @@ class CompaniesController < ApplicationController
   def show
     logger.debug '------------- companies-------------'
     logger.debug session[:locale]
+    
     @company = Company.find(params[:id])
     case session[:locale]
     when 'de'
-      @title = @company.title_de
+      @title    = @company.title_de
       @headline = @company.headline_de
       @body     = @company.body_de
     when 'en'
-      @title = @company.title_uk
+      @title    = @company.title_uk
       @headline = @company.headline_uk
       @body     = @company.body_uk
     when 'dk'
       @title    = @company.title
       @headline = @company.headline
       @body     = @company.body
-    else
+    when 'se'
+      @title    = @company.title_se
+      @headline = @company.headline_se
+      @body     = @company.body_se
+    when 'no'
+      @title    = @company.title_no
+      @headline = @company.headline_no
+      @body     = @company.body_no
+    when 'dk'
+      @title    = @company.title
+      @headline = @company.headline
+      @body     = @company.body
+    else 
       @title    = @company.title
       @headline = @company.headline
       @body     = @company.body
     end
+    
     @companies = Company.all
     
     session[:go_to_after_edit] = company_path(@company)

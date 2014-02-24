@@ -11,6 +11,8 @@
         = f.input :title ,:input_html => {:class => 'input-xlarge'}
         = f.input :title_uk ,:input_html => {:class => 'input-xlarge'}
         = f.input :title_de ,:input_html => {:class => 'input-xlarge'}
+        = f.input :title_no ,:input_html => {:class => 'input-xlarge'}
+        = f.input :title_se ,:input_html => {:class => 'input-xlarge'}
         = f.hidden_field :company_id, :value => @menu.company.id
 
       
@@ -45,6 +47,14 @@
         'Short description DE
         br
         = f.input :body_de,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
+      .span4
+        'Short description NO
+        br
+        = f.input :body_no,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
+      .span4
+        'Short description SE
+        br
+        = f.input :body_se,:input_html => {:style=>"width: 360px; height: 300px;"}, :label => false
   .form-actions
     
     = f.submit 'Save', :class =>"btn btn-primary  ", :name => nil

@@ -10,7 +10,7 @@
       #left-box
         .headline
           h1
-            = @headline.upcase
+            = @headline.upcase 
         .content    
           = simple_format @body
           -if can_edit?
