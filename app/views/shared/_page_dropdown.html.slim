@@ -13,6 +13,10 @@
             '#{((index+1).to_s + ': ' + menu.pages.first.title_uk.upcase)}
           -when 'de'
             '#{((index+1).to_s + ': ' + menu.pages.first.title_de.upcase)}
+          -when 'se'
+            '#{((index+1).to_s + ': ' + menu.pages.first.title_se.upcase)}
+          -when 'no'
+            '#{((index+1).to_s + ': ' + menu.pages.first.title_no.upcase)}
       -else
         = link_to '#', :class=>"dropdown-toggle", :'data-toggle'=>"dropdown", :href=>"#{'menu'+(index+1).to_s}" do
           -case session[:locale]
@@ -22,6 +26,10 @@
             '#{((index+1).to_s + ': ' + menu.title_uk.upcase)}
           -when 'de'
             '#{((index+1).to_s + ': ' + menu.title_de.upcase)}
+          -when 'se'
+            '#{((index+1).to_s + ': ' + menu.title_se.upcase)}
+          -when 'no'
+            '#{((index+1).to_s + ': ' + menu.title_no.upcase)}
           b class="caret"
           
         ul class="dropdown-menu"
@@ -33,3 +41,7 @@
               li =link_to page.title_uk.upcase, page
             -when 'de'
               li =link_to page.title_de.upcase, page
+            -when 'se'
+              li =link_to page.title_se.upcase, page
+            -when 'no'
+              li =link_to page.title_no.upcase, page
